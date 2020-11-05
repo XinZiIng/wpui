@@ -1,0 +1,309 @@
+# Table 表格
+定义常用表格样式类，例如：文本对齐方式、Hover样式、条纹样式
+
+## 示例
+### 默认样式
+```
+<table>
+    <caption>学生登记</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小蓝</td>
+            <td>女</td>
+            <td>18岁</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>小黑</td>
+            <td>男</td>
+            <td>20岁</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+### 对齐
+#### 左对齐
+```
+<table class="text-align-left">
+    <caption>学生登记</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小蓝</td>
+            <td>女</td>
+            <td>18岁</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>小黑</td>
+            <td>男</td>
+            <td>20岁</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+#### 居中对齐
+```
+<table class="text-align-center">
+    <caption>学生登记</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小蓝</td>
+            <td>女</td>
+            <td>18岁</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>小黑</td>
+            <td>男</td>
+            <td>20岁</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+#### 右对齐
+```
+<table class="text-align-right">
+    <caption>学生登记</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小蓝</td>
+            <td>女</td>
+            <td>18岁</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>小黑</td>
+            <td>男</td>
+            <td>20岁</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+### Hover
+```
+<table class="table-hover">
+    <caption>学生登记</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小蓝</td>
+            <td>女</td>
+            <td>18岁</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>小黑</td>
+            <td>男</td>
+            <td>20岁</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+### 条纹
+```
+<table class="table-striped">
+    <caption>学生登记</caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19岁</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小蓝</td>
+            <td>女</td>
+            <td>18岁</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>小黑</td>
+            <td>男</td>
+            <td>20岁</td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>合计</td>
+            <td>-</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>
+    </tfoot>
+</table>
+```
+
+## 样式类
+在`table`元素上追加以下样式类
+
+样式类 | 描述
+--- | ---
+`.text-align-left` | 表格文本左对齐样式类
+`.text-align-center` | 表格文本居中对齐样式类
+`.text-align-right` | 表格文本右对齐样式类
+`.table-hover` | 表格鼠标移入时高亮样式类
+`.table-striped` | 表格条纹样式类
