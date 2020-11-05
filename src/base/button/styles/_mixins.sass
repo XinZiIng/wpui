@@ -1,0 +1,51 @@
+$button-data: ("theme": var(--color-theme), "info": var(--color-info), "success": var(--color-success), "warning": var(--color-warning), "danger": var(--color-danger), "link": var(--color-link), "transparent": var(--color-black))
+
+// 按钮
+=button
+    %button-base
+        display: inline-flex
+        align-items: center
+        justify-content: center
+        line-height: 1.1
+        padding: 0 var(--margin-padding-md)
+        cursor: pointer
+        transition: .3s
+        white-space: nowrap
+
+    @each $key, $value in $button-data
+        @if $key == "link"
+            .button-#{$key}
+                @extend %button-base
+                background: transparent
+                color: $value
+                border: none
+
+        @else if  $key == "transparent"
+            .button-#{$key}
+                @extend %button-base
+                background: transparent
+                color: $value
+                border: none
+
+        @else
+            .button-#{$key}
+                @extend %button-base
+                background: $value
+                border-color: $value
+                color: white
+
+            .button-wireframe-#{$key}
+                @extend %button-base
+                background: transparent
+                border-color: $value
+                color: $value
+
+// 尺寸按钮
+=button-size
+    .button-lg
+        height: var(--height-lg)
+        font-size: var(--font-size-sm)
+
+    .button-sm
+        height: var(--height-sm)
+        font-size: var(--font-size)

@@ -1,0 +1,28 @@
+@import "styles/mixins"
+
++button
+
++button-size
+
+.button-group
+    display: inline-flex
+    &.border-oval
+        >*
+            &:first-of-type
+                border-radius: 10000px 0 0 10000px
+
+            &:last-of-type
+                margin-right: 0
+                border-radius: 0 10000px 10000px 0
+
+    &.border-radius
+        >*
+            &:first-of-type
+                border-radius: var(--border-radius) 0 0 var(--border-radius)
+
+            &:last-of-type
+                margin-right: 0
+                border-radius: 0 var(--border-radius) var(--border-radius) 0
+
+    > *
+        margin-right: -1px
