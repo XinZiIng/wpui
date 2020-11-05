@@ -1,0 +1,29 @@
+table
+    &.table-striped
+        thead
+            tr
+                background: var(--table-striped-background)
+
+        tbody
+            tr
+                &:nth-of-type(even)
+                    background: var(--table-striped-background)
+
+    &.table-hover
+        tbody
+            tr
+                transition: .3s
+                &:hover
+                    background: var(--table-hover-background)
+
+    &.text-align-left
+        tr
+            text-align: left
+
+    &.text-align-center
+        tr
+            text-align: center
+
+    &.text-align-right
+        tr
+            text-align: right
