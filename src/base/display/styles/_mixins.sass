@@ -1,0 +1,5 @@
+// 创建浮动样式类
+=display
+    @each $item in (inline-block, block, inline-flex, flex)
+        .display-#{$item}
+            display: #{$item}
