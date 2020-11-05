@@ -1,0 +1,155 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    &::before,&::after
+        box-sizing: border-box
+
+html,body
+    -webkit-text-size-adjust: 100%
+    -webkit-overflow-scrolling: touch
+    -webkit-font-smoothing: antialiased
+    -webkit-tap-highlight-color: transparent
+    touch-action: manipulation
+
+body
+    font-family: $font-family
+    font-size: var(--font-size)
+    line-height: normal
+    color: $color-black
+
+// 设置常见元素显示方式为行内块元素
+span, a, em, del, strong, label, cite, small, time, mark, code, image-component
+    display: inline-block
+
+p
+    white-space: normal
+    word-break: break-word
+
+// media
+fieldset, img
+    border: none
+
+img
+    display: block
+    max-width: 100%
+    width: inherit
+    height: inherit
+    
+li
+    list-style: none
+
+a
+    font-size: inherit
+    color: inherit
+    -webkit-touch-callout: none
+    text-decoration: none
+
+a, div, section, img, button, input
+    -webkit-tap-highlight-color: transparent
+
+a, button
+    touch-action: manipulation
+    user-select: none
+
+mark
+    background: none
+    color: $color
+
+small
+    font-size: 80%
+
+hr
+    width: 52%
+    margin: 5em auto
+    border: none
+    border-top: px(2px) solid #ebebeb
+
+pre
+    white-space: pre-wrap
+    word-wrap: break-word
+
+.iconfont, .icon
+    font-size: inherit
+
+blockquote
+    padding: var(--margin-padding-lg) var(--margin-padding-md)
+    font-size: var(--font-size-md)
+
+button, input, textarea, select, [contenteditable=true]
+    padding: 0 var(--margin-padding-md)
+    background: white
+    border: var(--border-1px-width) solid var(--other-border-color)
+    font-family: inherit
+    font-size: inherit
+    outline: none
+
+button, input, select
+    height: var(--height-md)
+
+textarea, [contenteditable=true]
+    min-height: var(--height-md)
+
+input
+    &:-webkit-autofill
+        box-shadow: 0 0 0 px(10000px) white inset
+
+    &:focus
+        -webkit-tap-highlight-color: transparent
+
+    &[type=radio], &[type=checkbox]
+        min-height: auto
+
+    &[type=color]
+        padding: 0
+
+    &::-webkit-input-placeholder
+        color: var(--color-gray-light)
+
+textarea
+    resize: none
+
+// 表格
+table
+    +create-border
+    width: 100%
+    border-collapse: collapse
+    border-spacing: 0
+    caption
+        margin: var(--margin-padding-md) 0
+        color: var(--color-gray-light)
+        font-size: var(--font-size-sm)
+
+    thead
+        background: var(--table-header-background)
+
+    tbody
+        tr
+            &:last-of-type
+                border: none
+
+    tfoot
+        +create-border(top)
+
+    tr
+        +create-border(bottom)
+        th, td
+            +create-border(left)
+            padding: var(--margin-padding-md)
+            vertical-align: middle
+            &:first-of-type
+                border: none
+
+        th
+            font-weight: normal
+
+        td
+            color: $color-gray
+
+modal-component,
+drawer-component,
+half-screen-dialog-component,
+loading-component [slot="icon"],
+badge-dot,
+badge-content
+    display: none

@@ -1,0 +1,23 @@
+@function toNumber($value)
+    @return round($value / ($value * 0 + 1))
+
+@function px($styleValues...)
+    $result: ""
+
+    @each $value in $styleValues
+        @if type-of($value) == number
+            $value: round($value / ($value * 0 + 1))
+
+        $n: 1
+        @if ($unit == px)
+            $n: 2
+
+        @else if ($unit == vw)
+            $n: 7.5
+
+        @else if ($unit == rem)
+            $n: 100
+
+        $result: #{$result + " " + $value / $n}$unit
+
+    @return $result
