@@ -1,0 +1,39 @@
+// 创建网格列
+=col-each($mediaSize, $isHide)
+    @for $i from 1 through $grid-columns
+        @if $isHide
+            .col-#{$mediaSize}-#{$i}
+                display: none
+
+        @else
+            @if $mediaSize == xs
+                .col-#{$i}
+                    display: block
+                    width: percentage($i / $grid-columns)
+
+                .col-offset-#{$i}
+                    margin-left: percentage($i / $grid-columns)
+
+            @else
+                .col-#{$mediaSize}-#{$i}
+                    display: block
+                    width: percentage($i / $grid-columns)
+
+                .col-offset-#{$mediaSize}-#{$i}
+                    margin-left: percentage($i / $grid-columns)
+
+
+// 创建网格系统
+=grid()
+    @each $size, $value in $grid-media
+        @if $size != xs
+            @media only screen and (max-width: #{$value - 1}px)
+                +col-each($size, true)
+
+    @each $size, $value in $grid-media
+        @if $size != xs
+            @media only screen and (min-width: #{$value}px)
+                +col-each($size, false)
+
+        @else
+            +col-each($size, false)
