@@ -10,6 +10,31 @@ module.exports = merge(common, {
     // 环境
     mode: "production",
 
+    // 加载器
+    module: {
+        rules: [
+            {
+                // Css依赖配置项
+                test: /\.(scss|sass|css)$/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
+                ]
+            }
+        ],
+    },
+
     // 开发工具
     devtool: VARIABLE.devtool,
 
