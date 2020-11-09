@@ -4,7 +4,7 @@
 class $$ {
     private options: string | HTMLElement | object;
     private selector: any[];
-    private length: number;
+    length: number;
 
     constructor(options: string | HTMLElement | object | Array<HTMLElement>) {
         if (!options) return;
