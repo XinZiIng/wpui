@@ -1,18 +1,18 @@
 =overflow
     @each $key in ("hidden", "auto")
         @if $key == "auto"
-            %overflow-auto, %overflow-x-auto, %overflow-y-auto
+            .overflow-auto, .overflow-x-auto, .overflow-y-auto
                 -webkit-overflow-scrolling: touch
                 overflow-scrolling: touch
 
         .overflow-y-#{$key}
-            overflow-y: #{$key}
+            overflow-y: #{$key} !important
 
         .overflow-x-#{$key}
-            overflow-x: #{$key}
+            overflow-x: #{$key} !important
 
         .overflow-#{$key}
-            overflow: #{$key}
+            overflow: #{$key} !important
 
 =height
     @each $key, $value in ("lg": var(--height-lg), "md": var(--height-md), "sm": var(--height-sm))
