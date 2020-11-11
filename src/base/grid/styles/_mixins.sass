@@ -7,6 +7,13 @@
 
         @else
             @if $mediaSize == xs
+                @if $i == 1
+                    .col-show
+                        display: block !important
+
+                    .col-hide
+                        display: none !important
+
                 .col-#{$i}
                     display: block
                     width: percentage($i / $grid-columns)
@@ -15,13 +22,19 @@
                     margin-left: percentage($i / $grid-columns)
 
             @else
+                @if $i == 1
+                    .col-#{$mediaSize}-show
+                        display: block !important
+
+                    .col-#{$mediaSize}-hide
+                        display: none !important
+
                 .col-#{$mediaSize}-#{$i}
                     display: block
                     width: percentage($i / $grid-columns)
 
                 .col-offset-#{$mediaSize}-#{$i}
                     margin-left: percentage($i / $grid-columns)
-
 
 // 创建网格系统
 =grid()
