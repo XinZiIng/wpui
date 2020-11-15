@@ -10,14 +10,11 @@
     [visible="false"]               定义该组件是否可见状态，接收`true`或`false`；默认`false`；当该值改变时可触发`changed`事件
     [mask-closable="true"]          定义该组件是否可通过点击遮罩层隐藏，接收`true`或`false`；默认`true`
     [mask-bg="var(--mask-black)"]   定义该组件遮罩层样式；默认`var(--mask-black)`
-    [blur="6"]                      定义该组件遮罩层模糊样式；默认`6`
+    [mask-blur="6"]                 定义该组件遮罩层模糊样式；默认`6`
 -->
 <drawer-component
     align="center"
     visible="false"
-    mask-closable="true"
-    mask-bg="var(--mask-black)"
-    blur="6"
 >
     <div style="background: white; min-height: 200px; min-width: 200px;">drawer content</div>
 </drawer-component>
@@ -45,4 +42,4 @@
 `visible` | 定义该组件是否可见状态，接收`true`或`false` | `false` | `true`
 `mask-closable` | 定义该组件是否可通过点击遮罩层隐藏 | `true` | -
 `mask-bg` | 定义该组件遮罩层样式 | `var(--mask-black)` | -
-`blur` | 定义该组件遮罩层模糊样式 | `6` | -
+`mask-blur` | 定义该组件遮罩层模糊样式 | `6` | -
