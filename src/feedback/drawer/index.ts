@@ -3,10 +3,10 @@ import {$, pxToVw, CustomElement} from "../../utils/index";
 /**
  * 抽屉组件
  * @attr [align]            定义该组件对齐方式；可选值有：`top`、`right`、`bottom`、`left`、`center`；默认`center`
- * @attr [visible]          定义该组件是否可见状态；该值为布尔值类型；可接收`true`或`false`；当该值改变时可触发`changed`事件
- * @attr [mask-closable]    定义该组件是否可通过点击遮罩层隐藏；该值为布尔类型；默认`true`
- * @attr [mask-bg]          定义该组件遮罩层样式，该值为字符串类型；默认`var(--mask-black)`
- * @attr [blur]             定义该组件遮罩层模糊样式；该值为数字类型；默认`6`
+ * @attr [visible]          定义该组件是否可见状态；可接收`true`或`false`；当该值改变时可触发`changed`事件
+ * @attr [mask-closable]    定义该组件是否可通过点击遮罩层隐藏；可接收`true`或`false`；默认`true`
+ * @attr [mask-bg]          定义该组件遮罩层样式；默认`var(--mask-black)`
+ * @attr [mask-blur]        定义该组件遮罩层模糊样式；默认`6`
  */
 @CustomElement("drawer-component")
 export default class Drawer extends HTMLElement {
@@ -157,7 +157,7 @@ export default class Drawer extends HTMLElement {
                     z-index: 1000;
                     background: transparent;
                     transition: .5s;
-                    backdrop-filter: blur(${pxToVw($(this).attr("blur") || 6)});
+                    backdrop-filter: blur(${pxToVw($(this).attr("mask-blur") || 6)});
                 }
                 
                 .drawer-wrapper.visible {
