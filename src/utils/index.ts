@@ -69,20 +69,19 @@ class $$ {
         this.each((node: HTMLElement) => {
 
             if (type === "click" && 'ontouchstart' in document.documentElement) {
-                let t = new Date().getTime();
-
                 node.addEventListener('touchstart', function () {
-                    node.removeAttribute(`data-touchmove-${t}`)
+                    // @ts-ignore
+                    this.CLICKTOTOUCH = false;
                 })
 
                 node.addEventListener('touchmove', function () {
-                    node.setAttribute(`data-touchmove-${t}`, "true");
+                    // @ts-ignore
+                    this.CLICKTOTOUCH = true;
                 })
 
                 node.addEventListener('touchend', function (ev:any) {
-                    node.getAttribute(`data-touchmove-${t}`) !== "true"
-                        ? handler(ev)
-                        : "";
+                    // @ts-ignore
+                    !this.CLICKTOTOUCH ? handler(ev) : "";
                 })
 
             } else {
