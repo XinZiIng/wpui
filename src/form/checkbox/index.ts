@@ -82,7 +82,6 @@ export default class CheckboxComponent extends HTMLElement {
         this.isOnce = true;
 
         this.dispatch('connected');
-        this.dispatch('changed');
 
         this.onClick();
     }

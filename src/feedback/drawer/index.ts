@@ -59,7 +59,6 @@ export default class Drawer extends HTMLElement {
         this.isOnce = true;
 
         this.dispatch('connected');
-        this.dispatch('changed');
 
         this.onClick();
     }

@@ -58,7 +58,6 @@ export default class LoadingComponent extends HTMLElement {
      */
     connectedCallback() {
         this.dispatch('connected');
-        this.dispatch('changed');
 
         let shadowRoot = this.shadowRoot;
 

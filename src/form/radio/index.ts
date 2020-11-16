@@ -50,7 +50,6 @@ export default class RadioComponent extends HTMLElement {
     connectedCallback() {
         this.isOnce = true;
         this.dispatch('connected');
-        this.dispatch('changed');
 
         this.onClick();
     }
