@@ -12,12 +12,15 @@ import {pxToVw, $, CustomElement} from "../../utils/index"
 export default class RadioComponent extends HTMLElement {
     private shadow: ShadowRoot;
     private isOnce: Boolean;
+    private activeIndex: number;
 
     /**
      * 构造器
      */
     constructor() {
         super();
+
+        this.activeIndex = 0;
 
         this.shadow = this.attachShadow({mode: 'open'})
 
@@ -40,7 +43,15 @@ export default class RadioComponent extends HTMLElement {
      */
     attributeChangedCallback(name, oldValue, newValue) {
         if (this.isOnce && oldValue != newValue) {
-            this.dispatch('changed');
+            let name = $(this).attr("name");
+
+            if (name && newValue === "true") {
+                this.setActiveIndex(name);
+                this.dispatch('changed');
+            }
+            this.dispatch('connected');
+
+            !name ? this.dispatch('changed') : "";
         }
     }
 
@@ -49,6 +60,7 @@ export default class RadioComponent extends HTMLElement {
      */
     connectedCallback() {
         this.isOnce = true;
+
         this.dispatch('connected');
 
         this.onClick();
@@ -64,8 +76,8 @@ export default class RadioComponent extends HTMLElement {
     /**
      * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
      */
-    disConnected2Callback() {
-        this.dispatch('disConnected2');
+    disconnectedCallback() {
+        this.dispatch('disconnected');
     }
 
     /**
@@ -90,31 +102,45 @@ export default class RadioComponent extends HTMLElement {
 
                 if (name) {
                     $(`radio-component[name=${name}][checked=true]`)
-                        .each(item => {
+                        .each((item, i) => {
                             if (item.getAttribute("disabled") === "true") return;
 
-                            this == item && item.getAttribute("checked") === "true"
-                                ? isSelf = true
-                                : item.setAttribute("checked", false);
+                            if (this == item && item.getAttribute("checked") === "true") {
+                                isSelf = true;
+                            } else {
+                                item.setAttribute("checked", "false");
+                            }
                         })
                 }
 
-                if (
-                    (!name && self.getAttribute("checked") === "true")
-                    || isSelf
-                ) return;
+                if ((!name && self.getAttribute("checked") === "true")|| isSelf) return;
 
                 self.setAttribute("checked", "true");
-
-                self.dispatch('changed');
             })
+    }
+
+    /**
+     * 设置激活索引
+     * @param name      组件name属性值
+     */
+    setActiveIndex(name?:string) {
+        !name ? name = $(this).attr("name") : "";
+
+        if (!name) return;
+
+        $(`radio-component[name=${name}]`).each((item, i) => {
+            if ($(item).attr("checked") === "true") {
+                this.activeIndex = i;
+                return false;
+            }
+        })
     }
 
     /**
      * 派发事件
      * @param type      事件类型
      */
-    dispatch(type) {
+    dispatch(type:string) {
         this.dispatchEvent(new CustomEvent(type, {
             detail: {
                 name: $(this).attr('name'),
@@ -122,6 +148,7 @@ export default class RadioComponent extends HTMLElement {
                 size: $(this).attr('size') || 32,
                 checked: $(this).attr('checked') === "true",
                 disabled: $(this).attr('disabled') === "true",
+                activeIndex: this.activeIndex || 0,
             },
         }))
     }
