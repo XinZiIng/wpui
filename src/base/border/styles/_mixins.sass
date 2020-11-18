@@ -1,6 +1,9 @@
 // 1px边框
 =border
     .border
+        +create-border("", var(--other-border-color))
+
+    .border-1px
         +create-border
 
     .border-none
@@ -8,11 +11,14 @@
 
     @each $value in (top, right, bottom, left)
         .border-#{$value}
+            +create-border($value, var(--other-border-color))
+
+        .border-#{$value}-1px
             +create-border($value)
 
-=create-border($direction: "")
+=create-border($direction: "", $border-color: var(--border-1px-color))
     @if ($direction != "")
-        border-#{$direction}: var(--border-1px-width) solid var(--border-1px-color)
+        border-#{$direction}: var(--border-1px-width) solid $border-color
 
     @else
         border: var(--border-1px-width) solid var(--border-1px-color)
