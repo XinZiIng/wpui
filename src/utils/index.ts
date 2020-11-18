@@ -135,7 +135,7 @@ class $$ {
      * @param i             DOM数组指定下标
      * @returns {*[]|*}     返回DOM数组或单个DOM
      */
-    get(i: number) {
+    get(i?: number) {
         if (typeof i !== "undefined") {
             i %= this.selector.length;
 
