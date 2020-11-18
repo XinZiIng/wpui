@@ -21,9 +21,9 @@ export default class Toast {
      * 构造器
      * @param options   配线参数，可接受对象或非对象
      */
-    constructor(options: OptionsInterface|string) {
+    constructor(options: OptionsInterface|string, changed?: Function) {
         let newOptions = typeof options !== "object"
-            ? { content: options}
+            ? { content: options, changed}
             : options;
 
         this.render(newOptions);
