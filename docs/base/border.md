@@ -4,6 +4,23 @@
 ## 示例
 ### 1PX边框
 定义默认、上、右、下、左`1px`边框样式类
+
+#### 通用场景
+该样式类的边框色与`input`、`button`、`textarea`、`select`等元素的边框色一致
+```
+<div class="border align-items-center justify-content-center" style="height: 40px;">.border 1px边框样式类</div>
+
+<div class="border-top" style="height: 40px;margin: 10px 0;">.border-top 1px顶部边框样式类</div>
+
+<div class="border-right justify-content-flex-end align-content-center" style="height: 40px;">.border-right 1px右边边框样式类</div>
+
+<div class="border-bottom align-content-flex-end" style="margin: 10px 0;height: 40px;">.border-bottom 1px底部边框样式类</div>
+
+<div class="border-left align-content-center" style="height: 40px;">.border-left 1px左边边框样式类</div>
+```
+
+#### 浅色
+该样式类的边框色比上述的要浅很多，一般常用于列表分割等场景
 ```
 <div class="border align-items-center justify-content-center" style="height: 40px;">.border 1px边框样式类</div>
 
@@ -49,13 +66,13 @@
 CSS变量 | 描述
 --- | ---
 `--border-1px-width` | `1px`边框宽度变量设置
-`--border-1px-color` | `1px`边框颜色变量设置
+`--border-color-light` | `1px`边框颜色变量设置
 `--border-radius` | 圆角边框变量设置
 
 ```
 :root {
     --border-1px-width: 1px;
-    --border-1px-color: #ccc;
+    --border-color-light: #ccc;
     --border-radius: 4px;
 }
 ```
