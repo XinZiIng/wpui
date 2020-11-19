@@ -15,16 +15,16 @@
 <div class="display-inline-block border">
     <button class="margin-lg">.margin-lg 大尺寸（15px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-top-lg">.margin-top-lg 距离顶部大尺寸（15px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-right-lg">.margin-right-lg 距离右边大尺寸（15px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-bottom-lg">.margin-bottom 距离底部大尺寸（15px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-left-lg">.margin-left-lg 距离左边大尺寸（15px）外边距样式类</button>
 </div>
 ```
@@ -35,16 +35,16 @@
 <div class="display-inline-block border">
     <button class="margin-md">.margin-md 中尺寸（10px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-top-md">.margin-top-md 距离顶部中尺寸（10px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-right-md">.margin-right-md 距离右边中尺寸（10px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-bottom-md">.margin-bottom 距离底部中尺寸（10px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-left-md">.margin-left-md 距离左边中尺寸（10px）外边距样式类</button>
 </div>
 ```
@@ -55,16 +55,16 @@
 <div class="display-inline-block border">
     <button class="margin-sm">.margin-sm 小尺寸（5px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-top-sm">.margin-top-sm 距离顶部小尺寸（5px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-right-sm">.margin-right-sm 距离右边小尺寸（5px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-bottom-sm">.margin-bottom 距离底部小尺寸（5px）外边距样式类</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-left-sm">.margin-left-sm 距离左边小尺寸（5px）外边距样式类</button>
 </div>
 ```
@@ -72,22 +72,22 @@
 #### 其他
 `0px`、`auto`外边距样式类定义
 ```
-<div class="padding-md margin-bottom-md" style="background: var(--border-1px-color)">
+<div class="padding-md margin-bottom-md" style="background: var(--border-color-light)">
     <button class="margin-auto" style="display: block;">.margin-auto 外边距自适应样式类</button>
 </div>
 <div class="display-inline-block border">
     <button class="margin">.margin 外边距0px</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-lg margin-top">.margin-top 距离顶部外边距0px</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-lg margin-right">.margin-right 距离右边外边距0px</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-lg margin-bottom">.margin-bottom 距离底部外边距0px</button>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <button class="margin-lg margin-left">.margin-left 距离左边外边距0px</button>
 </div>
 ```
@@ -96,19 +96,19 @@
 #### lg
 大尺寸`15px`内边距样式类定义
 ```
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-lg">.padding-lg 大尺寸（15px）内边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-top-lg">.padding-top-lg 距离顶部大尺寸（15px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-right-lg">.padding-right-lg 距离右边大尺寸（15px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-bottom-lg">.padding-bottom 距离底部大尺寸（15px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-left-lg">.padding-left-lg 距离左边大尺寸（15px）外边距样式类</span>
 </div>
 ```
@@ -116,19 +116,19 @@
 #### md
 中尺寸`10px`内边距样式类定义
 ```
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-md">.padding-md 中尺寸（10px）内边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-top-md">.padding-top-md 距离顶部中尺寸（10px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-right-md">.padding-right-md 距离右边中尺寸（10px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-bottom-md">.padding-bottom 距离底部中尺寸（10px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-left-md">.padding-left-md 距离左边中尺寸（10px）外边距样式类</span>
 </div>
 ```
@@ -136,19 +136,19 @@
 #### sm
 小尺寸`5px`内边距样式类定义
 ```
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-sm">.padding-sm 小尺寸（10px）内边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-top-sm">.padding-top-sm 距离顶部小尺寸（5px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-right-sm">.padding-right-sm 距离右边小尺寸（5px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-bottom-sm">.padding-bottom 距离底部小尺寸（5px）外边距样式类</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-left-sm">.padding-left-sm 距离左边小尺寸（5px）外边距样式类</span>
 </div>
 ```
@@ -159,16 +159,16 @@
 <div class="display-inline-block">
     <span class="padding">.padding 内边距0px</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-lg padding-top">.padding-top 距离顶部内边距0px</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-lg padding-right">.padding-right 距离右边内边距0px</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-lg padding-bottom">.padding-bottom 距离底部内边距0px</span>
 </div>
-<div class="display-inline-block" style="background: var(--border-1px-color)">
+<div class="display-inline-block" style="background: var(--border-color-light)">
     <span class="padding-lg padding-left">.padding-left 距离左边内边距0px</span>
 </div>
 ```

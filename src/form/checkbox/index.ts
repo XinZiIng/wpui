@@ -178,7 +178,7 @@ export default class CheckboxComponent extends HTMLElement {
                     justify-content: center;
                     width: ${pxToVw(size)};
                     height: ${pxToVw(size)};
-                    border: ${pxToVw(2)} solid var(--other-border-color, #d9d9d9);
+                    border: ${pxToVw(2)} solid var(--border-color);
                     border-radius: ${borderRadius};
                     transition: .3s;
                 }
@@ -197,8 +197,8 @@ export default class CheckboxComponent extends HTMLElement {
                 }
                 
                 :host([checked=true]) .checkbox-component .checkbox-icon {
-                    background: var(--color-theme, #6dcfff);
-                    border-color: var(--color-theme, #6dcfff)
+                    background: var(--color-theme);
+                    border-color: var(--color-theme)
                 }
                 
                 :host([checked=true]) .checkbox-component .checkbox-icon::before {
@@ -211,11 +211,11 @@ export default class CheckboxComponent extends HTMLElement {
                 
                 :host([disabled=true]) .checkbox-component .checkbox-icon {
                     opacity: .6;
-                    background: var(--bg-disabled, #f5f5f5);
+                    background: var(--bg-disabled);
                 }
                 
                 :host([disabled=true][checked=true]) .checkbox-component .checkbox-icon {
-                    background: var(--color-theme, #6dcfff);
+                    background: var(--color-theme);
                 }
                 
                 :host([disabled=true]) .checkbox-component .checkbox-label {

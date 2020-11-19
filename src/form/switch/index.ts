@@ -138,7 +138,7 @@ export default class SwitchComponent extends HTMLElement {
                     background: #FDFDFD;
                     border-radius: ${pxToVw(size / 2)};
                     box-sizing: border-box;
-                    border: ${pxToVw(2)} solid var(--other-border-color, #d9d9d9);
+                    border: ${pxToVw(2)} solid var(--border-color);
                     transition: background-color 0.1s,border 0.1s;
                     overflow: hidden;
                 }
@@ -153,13 +153,13 @@ export default class SwitchComponent extends HTMLElement {
                 }
                 
                 :host([checked=true]) .switch-component {
-                    background: var(--color-theme, #6dcfff);
-                    border-color: var(--color-theme, #6dcfff);
+                    background: var(--color-theme);
+                    border-color: var(--color-theme);
                 }
                 
                 :host([checked=true]) .switch-component {
-                    background: var(--color-theme, #6dcfff);
-                    border-color: var(--color-theme, #6dcfff);
+                    background: var(--color-theme);
+                    border-color: var(--color-theme);
                 }
                 
                 :host([checked=true]) .switch-component .switch-icon {
@@ -168,13 +168,13 @@ export default class SwitchComponent extends HTMLElement {
                 
                 :host([disabled=true]) .switch-component {
                     cursor: not-allowed;
-                    background: var(--bg-disabled, #f5f5f5);
+                    background: var(--bg-disabled);
                     opacity: .5;
                 }
                 
                 :host([disabled=true][checked=true]) .switch-component {
                     cursor: not-allowed;
-                    background: var(--color-theme, #6dcfff);
+                    background: var(--color-theme);
                 }
             </style>
             

@@ -187,7 +187,7 @@ export default class RadioComponent extends HTMLElement {
                 }
                 
                 .radio-component .radio-icon {
-                    border:  ${pxToVw(2)} solid var(--other-border-color, #d9d9d9);
+                    border:  ${pxToVw(2)} solid var(--border-color);
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -207,11 +207,11 @@ export default class RadioComponent extends HTMLElement {
                 }
                 
                 :host([checked=true]) .radio-component .radio-icon {
-                    border-color: var(--color-theme, #6dcfff)
+                    border-color: var(--color-theme)
                 }
                 
                 :host([checked=true]) .radio-component .radio-icon::before {
-                    background: var(--color-theme, #6dcfff);
+                    background: var(--color-theme);
                     transform: scale(.5);
                 }
                 
@@ -220,7 +220,7 @@ export default class RadioComponent extends HTMLElement {
                 }
                 
                 :host([disabled=true]) .radio-component .radio-icon {
-                    background: var(--bg-disabled, #f5f5f5);
+                    background: var(--bg-disabled);
                 }
                 
                 :host([disabled=true]) .radio-component .radio-label {
