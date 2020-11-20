@@ -6,14 +6,7 @@ new Drawer();
 
 /**
  * 消息提示框
- * @param {string} options.align        定义该组件对齐方式；可选值有：`top`、`bottom`、`center`；默认`center`
- * @param {string} options.icon         组件icon显示内容；可接收`html`字符串
- * @param {string} options.content      组件显示内容；可接收`html`字符串
- * @param {number} options.delay        定义该组件多少毫秒后隐藏；默认`2500`
- * @param {number} options.borderRadius 定义该组件内容圆角样式；默认`8`
- * @param {function} options.changed    组件属性改变时回调，当显示隐藏时，都会触发回调，可通过监听`arguments[0].detail.visible`识别
- * @example
- * new Toast(options);
+ * @docs    请查阅README.md文档
  */
 
 export default class Toast {

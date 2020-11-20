@@ -1,12 +1,8 @@
 import {$, pxToVw, CustomElement} from "../../utils/index"
 
 /**
- * 复选框组件
- * @attr [name]     定义该组件的名称，同个值中只能选中一个
- * @attr [size]     定义该组件的尺寸；默认`32`；当该值改变时可触发`changed`事件
- * @attr [value]    定义该组件的值，当该值改变时可触发；当该值改变时可触发`changed`事件
- * @attr [checked]  定义该组件是否选中状态，可接收`true`或`false`；当该值改变时可触发`changed`事件
- *  [disabled=xx]   定义该组件是否禁用状态，可接收`true`或`false`；当该值改变时可触发`changed`事件
+ * 复选框
+ * @docs    请查阅README.md文档
  */
 @CustomElement("checkbox-component")
 export default class CheckboxComponent extends HTMLElement {

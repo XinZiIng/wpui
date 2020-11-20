@@ -1,12 +1,8 @@
 import {$, pxToVw, CustomElement} from "../../utils/index";
 
 /**
- * 抽屉组件
- * @attr [align]            定义该组件对齐方式；可选值有：`top`、`right`、`bottom`、`left`、`center`；默认`center`
- * @attr [visible]          定义该组件是否可见状态；可接收`true`或`false`；当该值改变时可触发`changed`事件
- * @attr [mask-closable]    定义该组件是否可通过点击遮罩层隐藏；可接收`true`或`false`；默认`true`
- * @attr [mask-bg]          定义该组件遮罩层样式；默认`var(--mask-black)`
- * @attr [mask-blur]        定义该组件遮罩层模糊样式；默认`6`
+ * 抽屉
+ * @docs    请查阅README.md文档
  */
 @CustomElement("drawer-component")
 export default class Drawer extends HTMLElement {

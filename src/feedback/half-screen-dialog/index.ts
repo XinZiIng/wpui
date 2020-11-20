@@ -4,11 +4,8 @@ import {$, pxToVw, CustomElement} from "../../utils/index"
 new Drawer();
 
 /**
- * 半屏对话框组件
- * @desc                    基于<drawer-component/>组件封装
- * @attr [visible]          定义该组件是否可见状态，可接收`true`或`false`；当该值改变时可触发`changed`事件
- * @attr [mask-closable]    定义该组件是否可通过点击遮罩层隐藏；该值为布尔值类型；默认`true`
- * @attr [border-radius]    定义该组件圆角样式；该值为数字类型；默认：`24`
+ * 半屏对话框
+ * @docs    请查阅README.md文档
  */
 @CustomElement("half-screen-dialog-component")
 export default class HalfScreenDialogComponent extends HTMLElement {

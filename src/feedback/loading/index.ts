@@ -1,14 +1,8 @@
 import {$, CustomElement, pxToVw} from "../../utils/index"
 
 /**
- * 加载中组件
- * @attr [loading]      定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
- * @attr [type]         定义该组件加载显示类型，可选值有：`more`、`mask`；默认`mask`
- * @attr [mask-bg]      定义该组件遮罩层背景样式；默认`var(--mask-white)`
- * @attr [mask-blur]    定义该组件遮罩层模糊样式；默认`6`
- * @attr [mask-icon-top]定义该组件遮罩层默认加载图标距离顶部距离；默认图标居中显示
- * @attr [font-size]    定义该组件默认字体图标字体大小；默认`48`
- * @attr [color]        定义该组件默认字体图标颜色；默认`var(--color-theme)`
+ * 加载中
+ * @docs    请查阅README.md文档
  */
 @CustomElement("loading-component")
 export default class LoadingComponent extends HTMLElement {

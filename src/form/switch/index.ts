@@ -1,12 +1,8 @@
 import {$, pxToVw, CustomElement} from "../../utils/index"
 
 /**
- * 单选框组件
- * @attr [name]         定义该组件的名称；当选中状态改变时，会根据该属性值是否一致来判断是否全选
- * @attr [size]         定义该组件的尺寸；默认`48`
- * @attr [value]        定义该组件的值，当该值改变时可触发；当该值改变时可触发`changed`事件
- * @attr [checked]      定义该组件是否选中状态，可接收`true`或`false`；当该值改变时可触发`changed`事件
- * @attr [disabled]     定义该组件是否禁用状态，可接收`true`或`false`；当该值改变时可触发`changed`事件
+ * 单选框
+ * @docs    请查阅README.md文档
  */
 @CustomElement("switch-component")
 export default class SwitchComponent extends HTMLElement {
