@@ -1,4 +1,4 @@
-import {$, pxToVw, CustomElement} from "../../utils/index"
+import {$, pxToVw, CustomElement} from "../../utils"
 
 /**
  * 单选框

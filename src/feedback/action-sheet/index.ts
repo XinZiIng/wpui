@@ -1,5 +1,5 @@
-import Drawer from "./../drawer/index"
-import {$, pxToVw} from "../../utils/index"
+import Drawer from "./../drawer"
+import {$, pxToVw} from "../../utils"
 import OptionsInterface from "./index.d"
 
 new Drawer();

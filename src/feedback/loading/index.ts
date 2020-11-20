@@ -1,4 +1,4 @@
-import {$, CustomElement, pxToVw} from "../../utils/index"
+import {$, CustomElement, pxToVw} from "../../utils"
 
 /**
  * 加载中

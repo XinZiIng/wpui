@@ -1,5 +1,5 @@
-import Drawer from "./../drawer/index"
-import {$, pxToVw, CustomElement} from "../../utils/index"
+import Drawer from "./../drawer"
+import {$, pxToVw, CustomElement} from "../../utils"
 
 new Drawer();
 
