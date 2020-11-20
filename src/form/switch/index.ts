@@ -1,11 +1,10 @@
-import {$, pxToVw, CustomElement} from "../../utils"
+import {$, pxToVw, createCustomElement} from "../../utils"
 
 /**
- * 单选框
+ * 开关
  * @docs    请查阅README.md文档
  */
-@CustomElement("switch-component")
-export default class SwitchComponent extends HTMLElement {
+class SwitchComponent extends HTMLElement {
     private shadow: ShadowRoot;
     private isConnect: Boolean;
 
@@ -181,3 +180,5 @@ export default class SwitchComponent extends HTMLElement {
         `
     }
 }
+
+export default createCustomElement("switch-component", SwitchComponent)

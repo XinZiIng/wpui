@@ -1,8 +1,8 @@
-export interface OptionsInterface {
+export default interface OptionsInterface {
     align: string,
-    icon: string,
+    icon?: string,
     content: string,
-    delay: number,
-    borderRadius: number,
-    changed: Function,
+    delay?: number,
+    borderRadius?: number,
+    onChange?: Function,
 }

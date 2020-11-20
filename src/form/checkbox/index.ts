@@ -1,11 +1,10 @@
-import {$, pxToVw, CustomElement} from "../../utils"
+import {$, pxToVw, createCustomElement} from "../../utils"
 
 /**
  * 复选框
  * @docs    请查阅README.md文档
  */
-@CustomElement("checkbox-component")
-export default class CheckboxComponent extends HTMLElement {
+class CheckboxComponent extends HTMLElement {
     private shadow: ShadowRoot;
     private isConnect: Boolean;
     /**
@@ -228,3 +227,5 @@ export default class CheckboxComponent extends HTMLElement {
         `
     }
 }
+
+export default createCustomElement("checkbox-component", CheckboxComponent)

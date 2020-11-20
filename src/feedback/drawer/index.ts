@@ -1,11 +1,11 @@
-import {$, pxToVw, CustomElement} from "../../utils";
+import {$, pxToVw, createCustomElement} from "../../utils";
 
 /**
  * 抽屉
  * @docs    请查阅README.md文档
  */
-@CustomElement("drawer-component")
-export default class Drawer extends HTMLElement {
+
+class DrawerComponent extends HTMLElement {
     private shadow: ShadowRoot;
     private isConnect: boolean;
 
@@ -256,3 +256,5 @@ export default class Drawer extends HTMLElement {
         `
     }
 }
+
+export default createCustomElement("drawer-component", DrawerComponent)

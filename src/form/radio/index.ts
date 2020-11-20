@@ -1,11 +1,10 @@
-import {pxToVw, $, CustomElement} from "../../utils"
+import {pxToVw, $, createCustomElement} from "../../utils"
 
 /**
  * 单选框
  * @docs    请查阅README.md文档
  */
-@CustomElement("radio-component")
-export default class RadioComponent extends HTMLElement {
+class RadioComponent extends HTMLElement {
     private shadow: ShadowRoot;
     private isConnect: Boolean;
     private activeIndex: number;
@@ -234,3 +233,5 @@ export default class RadioComponent extends HTMLElement {
         `
     }
 }
+
+export default createCustomElement("radio-component", RadioComponent)

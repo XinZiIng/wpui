@@ -435,10 +435,12 @@ export function $(options: any) {
 /**
  * 自定义元素装饰器
  */
-export function CustomElement(name: string)  {
-    return (target: any) => {
-        !customElements.get(name)
-            ? customElements.define(name, target)
-            : "";
+export function createCustomElement(name: string, constructor: CustomElementConstructor)  {
+    return class {
+        constructor() {
+            !customElements.get(name)
+                ? customElements.define(name, constructor)
+                : "";
+        }
     }
 }

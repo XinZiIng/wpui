@@ -1,11 +1,10 @@
-import {$, CustomElement, pxToVw} from "../../utils"
+import {$, pxToVw, createCustomElement} from "../../utils"
 
 /**
  * 加载中
  * @docs    请查阅README.md文档
  */
-@CustomElement("loading-component")
-export default class LoadingComponent extends HTMLElement {
+class LoadingComponent extends HTMLElement {
     private shadow: ShadowRoot;
 
     /**
@@ -249,3 +248,5 @@ export default class LoadingComponent extends HTMLElement {
         `
     }
 }
+
+export default createCustomElement("loading-component", LoadingComponent)

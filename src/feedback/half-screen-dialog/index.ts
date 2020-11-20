@@ -1,5 +1,5 @@
 import Drawer from "./../drawer"
-import {$, pxToVw, CustomElement} from "../../utils"
+import {$, pxToVw, createCustomElement} from "../../utils"
 
 new Drawer();
 
@@ -7,8 +7,7 @@ new Drawer();
  * 半屏对话框
  * @docs    请查阅README.md文档
  */
-@CustomElement("half-screen-dialog-component")
-export default class HalfScreenDialogComponent extends HTMLElement {
+class HalfScreenDialogComponent extends HTMLElement {
     private shadow: ShadowRoot;
     constructor(options = {}) {
         super();
@@ -179,3 +178,5 @@ export default class HalfScreenDialogComponent extends HTMLElement {
             })
     }
 }
+
+export default createCustomElement("half-screen-dialog-component", HalfScreenDialogComponent)
