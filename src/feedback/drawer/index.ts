@@ -41,7 +41,7 @@ class DrawerComponent extends HTMLElement {
                 : "";
 
             newValue === 'false'
-                ? this.hide(() => this.dispatch('afterHide'))
+                ? this.hide(() => this.dispatch('afterClose'))
                 : "";
 
             this.isConnect ? this.dispatch('change') : "";
