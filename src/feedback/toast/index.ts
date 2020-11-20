@@ -1,6 +1,6 @@
-import Drawer from "./../Drawer/index"
-import {$, pxToVw} from "../../utils/index"
-import {OptionsInterface} from "./index.d"
+import Drawer from "./../Drawer"
+import {$, pxToVw} from "../../utils"
+import OptionsInterface from "./index.d"
 
 new Drawer();
 
@@ -8,15 +8,15 @@ new Drawer();
  * 消息提示框
  * @docs    请查阅README.md文档
  */
-
 export default class Toast {
     /**
      * 构造器
-     * @param options   配线参数，可接受对象或非对象
+     * @param options       配置参数，可接受对象或非字符串
+     * @param afterClose    在提示框关闭后，该参数仅在简阶版生效
      */
-    constructor(options: OptionsInterface|string, changed?: Function) {
+    constructor(options: OptionsInterface | string, afterClose?: Function) {
         let newOptions = typeof options !== "object"
-            ? { content: options, changed}
+            ? { content: options, afterClose}
             : options;
 
         this.render(newOptions);
@@ -33,7 +33,7 @@ export default class Toast {
                 delay,
                 content,
                 borderRadius,
-                changed,
+                afterClose,
             } = options;
 
         let div = document.createElement("div"),
@@ -44,9 +44,8 @@ export default class Toast {
                 visible="true"
                 mask-closable="false"
                 mask-bg="transparent"
-                skip-verification="true"
+                mask-blur="0"
                 align="${align || 'center'}"
-                blur="0"
             >
                 <style>
                     drawer-component .toast-component {
@@ -105,20 +104,20 @@ export default class Toast {
         );
 
         // 绑定事件
-        this.bind(drawerComponent, changed);
+        this.bind(drawerComponent, afterClose);
     }
 
     /**
      * 绑定事件
      * @param el        <drawer-component/>元素
-     * @param changed   组件属性改变时回调事件类型
+     * @param afterClose   组件属性改变时回调事件类型
      */
-    bind(el, changed) {
+    bind(el, afterClose) {
         $(el)
             // 属性改变时
-            .on("changed", ev => changed?.(ev))
+            .on("change", ev => afterClose?.(ev))
 
-            // 隐藏后
-            .on("afterHide", () => $(el).remove())
+            // 在关闭后
+            .on("afterClose", () => $(el).remove())
     }
 }

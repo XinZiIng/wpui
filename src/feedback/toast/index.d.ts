@@ -4,5 +4,5 @@ export default interface OptionsInterface {
     content: string,
     delay?: number,
     borderRadius?: number,
-    onChange?: Function,
+    afterClose?: Function,
 }
