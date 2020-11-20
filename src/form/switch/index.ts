@@ -11,7 +11,7 @@ import {$, pxToVw, CustomElement} from "../../utils/index"
 @CustomElement("switch-component")
 export default class SwitchComponent extends HTMLElement {
     private shadow: ShadowRoot;
-    private isOnce: Boolean;
+    private isConnect: Boolean;
 
     /**
      * 构造器
@@ -39,8 +39,8 @@ export default class SwitchComponent extends HTMLElement {
      * @param newValue      新的属性值
      */
     attributeChangedCallback(name, oldValue, newValue) {
-        if (this.isOnce && oldValue != newValue) {
-            this.dispatch('changed');
+        if (this.isConnect && oldValue != newValue) {
+           this.dispatch('change');
         }
     }
 
@@ -48,8 +48,9 @@ export default class SwitchComponent extends HTMLElement {
      * 当自定义元素第一次被连接到文档DOM时被调用
      */
     connectedCallback() {
-        this.isOnce = true;
-        this.dispatch('connected');
+        this.isConnect = true;
+
+        this.dispatch('connect');
 
         this.onClick();
     }
@@ -58,21 +59,21 @@ export default class SwitchComponent extends HTMLElement {
      * 派发改变时自定义事件
      */
     changed() {
-        this.dispatch('changed');
+       this.dispatch('change');
     }
 
     /**
      * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
      */
     disconnectedCallback() {
-        this.dispatch('disconnected');
+        this.dispatch('disconnect');
     }
 
     /**
      * 当自定义元素被移动到新文档时被调用
      */
     adoptedCallback() {
-        this.dispatch('adopted');
+        this.dispatch('adopt');
     }
 
     /**

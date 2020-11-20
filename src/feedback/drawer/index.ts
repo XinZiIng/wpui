@@ -11,7 +11,7 @@ import {$, pxToVw, CustomElement} from "../../utils/index";
 @CustomElement("drawer-component")
 export default class Drawer extends HTMLElement {
     private shadow: ShadowRoot;
-    private isOnce: boolean;
+    private isConnect: boolean;
 
     /**
      * 构造器
@@ -48,7 +48,7 @@ export default class Drawer extends HTMLElement {
                 ? this.hide(() => this.dispatch('afterHide'))
                 : "";
 
-            this.isOnce ? this.dispatch('changed') : "";
+            this.isConnect ? this.dispatch('change') : "";
         }
     }
 
@@ -56,9 +56,9 @@ export default class Drawer extends HTMLElement {
      * 当自定义元素第一次被连接到文档DOM时被调用
      */
     connectedCallback() {
-        this.isOnce = true;
+        this.isConnect = true;
 
-        this.dispatch('connected');
+        this.dispatch('connect');
 
         this.onClick();
     }
@@ -67,14 +67,14 @@ export default class Drawer extends HTMLElement {
      * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
      */
     disconnectedCallback() {
-        this.dispatch('disconnected');
+        this.dispatch('disconnect');
     }
 
     /**
      * 当自定义元素被移动到新文档时被调用
      */
     adoptedCallback() {
-        this.dispatch('adopted');
+        this.dispatch('adopt');
     }
 
     /**
@@ -163,9 +163,12 @@ export default class Drawer extends HTMLElement {
                     display: flex;
                 }
                 
+                .drawer-wrapper.show {
+                    background: ${$(this).attr("mask-bg") || `var(--mask-black)`};
+                }
+                
                 .drawer-wrapper.show, .drawer-wrapper.show .drawer-box {
                     opacity: 1;
-                    background: ${$(this).attr("mask-bg") || `var(--mask-black)`};
                 }
                 
                 .drawer-wrapper.hide {

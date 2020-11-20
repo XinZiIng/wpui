@@ -47,21 +47,21 @@ export default class HalfScreenDialogComponent extends HTMLElement {
      * 当自定义元素第一次被连接到文档DOM时被调用
      */
     connectedCallback() {
-        this.dispatch('connected');
+        this.dispatch('connect');
     }
 
     /**
      * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
      */
     disconnectedCallback() {
-        this.dispatch('disconnected');
+        this.dispatch('disconnect');
     }
 
     /**
      * 当自定义元素被移动到新文档时被调用
      */
     adoptedCallback() {
-        this.dispatch('adopted');
+        this.dispatch('adopt');
     }
 
     /**
