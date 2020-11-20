@@ -1,16 +1,17 @@
-export interface DataInterface {
+interface DataInterface {
     isActive?: boolean,
     isDisabled?: boolean,
     text: string,
     [propName: string]: any
 }
 
-export interface OptionsInterface {
+export default interface OptionsInterface {
     title?: string,
     footerButtonText?: string,
     borderRadius?: number,
-    changed?(ev: any),
+    onChange?(ev: any),
     onClick?(ev: object, i: number),
-    blur?: number,
+    maskBlur?: number,
+    maskClosable?: boolean,
     data: DataInterface[]
 }
