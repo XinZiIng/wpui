@@ -59,9 +59,9 @@ export default class ActionSheet {
             <drawer-component 
                 align="bottom"
                 id="ActionSheet-${this.ID}"
-                ${typeof visible !== "undefined" ? `visible="${visible}"` : ""}
-                ${typeof maskBlur !== "undefined" ? `mask-blur="${maskBlur}"` : ""}
-                ${typeof maskClosable !== "undefined" ? `mask-closable="${maskClosable}"` : ""}
+                visible="${visible || false}"
+                mask-blur="${maskBlur || 6}"
+                mask-mlosable="${maskClosable || true}"
             >
                 <style>
                     .action-sheet-component {
