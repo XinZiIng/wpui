@@ -242,6 +242,8 @@ document.querySelector("checkbox-component").addEventListener("change", e => {
     let detail = e.detail;
     console.log("属性改变时回调：", detail);
     // {
+    //     name: "xxx",             // 当前该组件的名称
+    //     value: "xxx",            // 当前组件的名称
     //     checked: true,           // 当前组件是否选中状态，返回`true`或`false`
     //     disabled: false,         // 当前组件是否禁用状态，返回`true`或`false`
     //     isCheckedAll: false,     // 同当前组件`[name]`属性的所有组件是否全选状态（除禁用状态），返回`true`或`false`
