@@ -40,10 +40,12 @@ class CheckboxComponent extends HTMLElement {
 
     /**
      * 获取属性集
-     * @returns {{checked: boolean, disabled: boolean, isCheckedAll: boolean}}
+     * @returns {{name: string, value: string, checked: boolean, disabled: boolean, isCheckedAll: boolean, isTriggerEvent: boolean}}
      */
     getAllAttrs() {
         let res = {
+                name: $(this).attr('name'),
+                value: $(this).attr('value'),
                 checked: $(this).attr('checked') === "true",
                 disabled: $(this).attr('disabled') === "true",
                 isCheckedAll: false,
