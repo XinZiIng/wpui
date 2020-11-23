@@ -23,7 +23,7 @@ class CheckboxComponent extends HTMLElement {
      * @returns {string[]}      需要被监听的属性名
      */
     static get observedAttributes() {
-        return ['value', 'checked', 'disabled'];
+        return ['checked', 'disabled'];
     }
 
     /**
@@ -34,7 +34,7 @@ class CheckboxComponent extends HTMLElement {
      */
     attributeChangedCallback(name, oldValue, newValue) {
         if (this.isConnect && oldValue != newValue) {
-           this.dispatch('change');
+            this.dispatch('change');
         }
     }
 
@@ -47,6 +47,7 @@ class CheckboxComponent extends HTMLElement {
                 checked: $(this).attr('checked') === "true",
                 disabled: $(this).attr('disabled') === "true",
                 isCheckedAll: false,
+                isTriggerEvent: $(this).attr('data-trigger-event') === "true",
             },
             name = $(this).attr('name');
 
@@ -59,9 +60,12 @@ class CheckboxComponent extends HTMLElement {
                 allCheckedCheckbox = $(`checkbox-component[name=${name}][checked=true]`),
 
                 // 所有同名禁用状态组件元素
-                allDisabledCheckbox = $(`checkbox-component[name=${name}][disabled=true]`);
+                allDisabledCheckbox = $(`checkbox-component[name=${name}][disabled=true]`),
 
-            res.isCheckedAll = allCheckbox.length === allCheckedCheckbox.length + allDisabledCheckbox.length;
+                // 所有同名选中且禁用状态组件元素
+                allCheckedAndDisabledCheckbox = $(`checkbox-component[name=${name}][checked=true][disabled=true]`);
+
+            res.isCheckedAll = allCheckbox.length === allCheckedCheckbox.length + allDisabledCheckbox.length - allCheckedAndDisabledCheckbox.length;
 
         } else {
             res.isCheckedAll = res.checked;
@@ -99,18 +103,20 @@ class CheckboxComponent extends HTMLElement {
      * 当点击时
      */
     onClick() {
-        let self = this;
-
         $(this.shadowRoot)
-            .on('click', (ev) => {
+            .on('click', ev => {
                 ev.stopPropagation();
                 ev.preventDefault();
 
-                if ($(self).attr('disabled') === "true") return;
+                if ($(this).attr('disabled') === "true") return;
 
-                let isReverseChecked = !($(self).attr("checked") === "true");
+                let isReverseChecked = !($(this).attr("checked") === "true");
 
-                $(self).attr("checked", isReverseChecked);
+                $(`checkbox-component[data-trigger-event=true]`).removeAttr("data-trigger-event")
+
+                $(this)
+                    .attr("data-trigger-event", "true")
+                    .attr("checked", isReverseChecked);
             })
     }
 
