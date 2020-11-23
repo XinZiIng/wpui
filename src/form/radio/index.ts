@@ -27,7 +27,7 @@ class RadioComponent extends HTMLElement {
      * @returns {string[]}      需要被监听的属性名
      */
     static get observedAttributes() {
-        return ['value', 'checked', 'disabled'];
+        return ['checked', 'disabled'];
     }
 
     /**
@@ -141,7 +141,6 @@ class RadioComponent extends HTMLElement {
             detail: {
                 name: $(this).attr('name'),
                 value: $(this).attr('value'),
-                size: $(this).attr('size') || 32,
                 checked: $(this).attr('checked') === "true",
                 disabled: $(this).attr('disabled') === "true",
                 activeIndex: this.activeIndex || 0,
@@ -217,6 +216,7 @@ class RadioComponent extends HTMLElement {
                 
                 :host([disabled=true]) .radio-component .radio-icon {
                     background: var(--bg-disabled);
+                    opacity: .6;
                 }
                 
                 :host([disabled=true]) .radio-component .radio-label {
