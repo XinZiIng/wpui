@@ -68,7 +68,7 @@ class LoadingComponent extends HTMLElement {
             .find(`[name="more"]`)
             .on('slotchange', function () {
                 this.assignedNodes()[0]?.innerHTML
-                    ? $(shadowRoot).find(".loading-more-wrapper > .icon-loading").remove()
+                    ? $(shadowRoot).find(".loading-more-wrapper > div > .icon-loading").remove()
                     : "";
             });
     }
