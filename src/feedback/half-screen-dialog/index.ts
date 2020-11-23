@@ -84,10 +84,10 @@ class HalfScreenDialogComponent extends HTMLElement {
         div.innerHTML = `
             <drawer-component 
                 visible="${$(this).attr("visible") || false}"
+                mask-bg="${$(this).attr("mask-bg") || 'var(--mask-black)'}"
+                mask-blur="${$(this).attr("mask-blur") || '6'}"
                 mask-closable="${$(this).attr("mask-closable") || true}"
-                skip-verification="true"
                 align="bottom"
-                blur="${$(this).attr("blur")}"
             >
                 <style>
                     :host([visible]) {
@@ -150,15 +150,18 @@ class HalfScreenDialogComponent extends HTMLElement {
 
         drawerComponent = div.children[0];
 
-
         this.bind(drawerComponent);
         return drawerComponent;
     }
 
+    /**
+     *
+     * @param drawerComponent
+     */
     bind(drawerComponent) {
         // 抽屉组件绑定事件
         $(drawerComponent)
-            .on("changed", ev => {
+            .on("change", ev => {
                 $(this).attr("visible", ev.detail.visible)
                 this.dispatch("changed")
             })
