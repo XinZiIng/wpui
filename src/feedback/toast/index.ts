@@ -5,7 +5,7 @@ import OptionsInterface from "./index.d"
 new Drawer();
 
 /**
- * 消息提示框
+ * 弹出式提示
  * @docs    请查阅README.md文档
  */
 export default class Toast {
