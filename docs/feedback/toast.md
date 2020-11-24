@@ -1,4 +1,4 @@
-# Toast 消息提示框
+# Toast 弹出式提示
 基于[<drawer-component/>](http://biuui.com/docs/feedback/drawer) 组件封装
 
 用于主动操作反馈提示，在提示后，将延时隐藏
