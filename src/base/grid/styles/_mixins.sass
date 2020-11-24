@@ -9,8 +9,11 @@
             @if $mediaSize == xs
                 @if $i == 1
                     .col-show
+                        display: block !important
+
+                    .col-show-flex
                         display: flex !important
-                        flex-flow: wrap
+                        flex-wrap: wrap
 
                     .col-hide
                         display: none !important
@@ -25,8 +28,11 @@
             @else
                 @if $i == 1
                     .col-#{$mediaSize}-show
+                        display: block !important
+
+                    .col-#{$mediaSize}-show-flex
                         display: flex !important
-                        flex-flow: wrap
+                        flex-wrap: wrap
 
                     .col-#{$mediaSize}-hide
                         display: none !important
