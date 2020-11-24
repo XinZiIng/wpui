@@ -9,7 +9,8 @@ new Drawer();
  */
 class HalfScreenDialogComponent extends HTMLElement {
     private shadow: ShadowRoot;
-    constructor(options = {}) {
+
+    constructor() {
         super();
 
         this.shadow = this.attachShadow({mode: 'open'});
