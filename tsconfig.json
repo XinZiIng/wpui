@@ -4,6 +4,8 @@
     "experimentalDecorators": true,
     "target": "es6",
     "moduleResolution": "node",
-    "module": "esnext"
-  }
+    "module": "esnext",
+    "allowJs": true
+  },
+  "exclude": ["node_modules", "dist"]
 }
