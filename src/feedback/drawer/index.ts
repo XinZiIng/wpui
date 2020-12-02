@@ -99,7 +99,7 @@ class DrawerComponent extends HTMLElement {
             $(this).attr("visible", false);
 
             cb?.();
-        }, 500)
+        }, 300)
     }
 
     /**
@@ -151,7 +151,7 @@ class DrawerComponent extends HTMLElement {
                     opacity: 0;
                     z-index: 1000;
                     background: transparent;
-                    transition: .5s;
+                    transition: .3s;
                     backdrop-filter: blur(${pxToVw($(this).attr("mask-blur") || 6)});
                 }
                 
@@ -168,10 +168,6 @@ class DrawerComponent extends HTMLElement {
                 }
                 
                 .drawer-wrapper.hide {
-                    background: transparent;
-                }
-                
-                .drawer-wrapper.hide, .drawer-wrapper.hide .drawer-box {
                     opacity: 0;
                 }
                 
@@ -181,7 +177,7 @@ class DrawerComponent extends HTMLElement {
                     overflow-scrolling: touch;
                     cursor: auto;
                     opacity: 0;
-                    transition: .5s;
+                    transition: .3s;
                 }
                 
                 :host([align=top]) .drawer-wrapper {
