@@ -6,6 +6,7 @@ import {$, pxToVw, createCustomElement} from "../../utils"
  */
 class LoadingComponent extends HTMLElement {
     private shadow: ShadowRoot;
+    private isConnect: boolean;
 
     /**
      * 构造器
@@ -33,7 +34,7 @@ class LoadingComponent extends HTMLElement {
      * @param newValue      新的属性值
      */
     attributeChangedCallback(name, oldValue, newValue) {
-        if (oldValue != newValue) {
+        if (this.isConnect && oldValue != newValue) {
             newValue === 'true'
                 ? this.show()
                 : "";
@@ -50,27 +51,19 @@ class LoadingComponent extends HTMLElement {
      * 当自定义元素第一次被连接到文档DOM时被调用
      */
     connectedCallback() {
+        this.isConnect = true;
+
         this.dispatch('connect');
 
-        let shadowRoot = this.shadowRoot;
+        // "mask"插槽元素存在时，删除默认元素
+        if ($(this).find(`[slot=mask]`).length) {
+            $(this.shadowRoot).find(`.loading-mask-wrapper > .icon-loading`).remove()
+        }
 
-        // 监听"mask"插槽元素变动
-        $(shadowRoot)
-            .find(`[name="mask"]`)
-            .on('slotchange', function () {
-                this.assignedNodes()[0]?.innerHTML
-                    ? $(shadowRoot).find(".loading-mask-wrapper > .icon-loading").remove()
-                    : "";
-            });
-
-        // 监听“more”插槽元素变动
-        $(shadowRoot)
-            .find(`[name="more"]`)
-            .on('slotchange', function () {
-                this.assignedNodes()[0]?.innerHTML
-                    ? $(shadowRoot).find(".loading-more-wrapper > div > .icon-loading").remove()
-                    : "";
-            });
+        // "more"插槽元素存在时，删除默认元素
+        if ($(this).find(`[slot=more]`).length) {
+            $(this.shadowRoot).find(`.loading-more-wrapper > div > .icon-loading`).remove()
+        }
     }
 
     /**
