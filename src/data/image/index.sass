@@ -1,0 +1,38 @@
+@import "root"
+
+image-component
+    display: inline-block
+    overflow: hidden
+    position: relative
+    &[object-fit=fill]
+        img
+            object-fit: fill
+
+    &[object-fit=contain]
+        img
+            object-fit: contain
+
+    &[object-fit=cover]
+        img
+            object-fit: cover
+
+    &[object-fit=scale-down]
+        img
+            object-fit: scale-down
+
+    >img
+        position: relative
+        width: 100%
+        height: 100%
+
+    [slot=loading], [slot=error]
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+
+    [slot=error]
+        display: flex
+        align-items: center
+        justify-content: center

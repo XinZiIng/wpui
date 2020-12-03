@@ -14,6 +14,8 @@ class ImageComponent extends HTMLElement {
     constructor() {
         super();
 
+        import('./index.sass')
+
         this.shadow = this.attachShadow({mode: 'open'})
 
         this.shadow.innerHTML = this.render();
