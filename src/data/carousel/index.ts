@@ -534,7 +534,9 @@ class CarouselComponent extends HTMLElement {
      * 自动轮播
      */
     autoPlay() {
-        if (!(this.isLoop && $(this).attr("autoplay"))) return;
+        let isAutoPlay = $(this).attr("autoplay") === "true";
+
+        if (!(this.isLoop && isAutoPlay) || !isAutoPlay) return;
 
         clearInterval(this.autoPlayTimer);
 
@@ -554,6 +556,10 @@ class CarouselComponent extends HTMLElement {
     render() {
         return `
             <style>
+                ::slotted(carousel-item) {
+                    margin-${this.isVertical ? "bottom" : "right"}: ${$(this).attr("margin") || 0}px !important;
+                }
+                
                 :host([vertical=true]) .carousel-slider {
                     display: block;
                     width: 100%;
