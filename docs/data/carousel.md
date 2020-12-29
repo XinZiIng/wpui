@@ -206,6 +206,123 @@
 </script>
 ```
 
+### 边距
+设置`<carousel-component/>`元素的属性`[margin="15"]`
+```
+<carousel-component
+    loop="true"
+    threshold="50"
+    margin="15"
+    vertical="false"
+    interval="5000"
+    autoplay="true"
+    index="0"
+>
+    <carousel-item>
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3156021755,433235465&fm=26&gp=0.jpg" alt="">
+    </carousel-item>
+    <carousel-item>
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1121472188,874182665&fm=26&gp=0.jpg" alt="">
+    </carousel-item>
+    <carousel-item>
+        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2215911299,1915319398&fm=15&gp=0.jpg" alt="">
+    </carousel-item>
+
+    <!-- 小圆点列表插槽，需要自行遍历 -->
+    <div slot="dots">
+        <!-- .default 默认样式（如需自定义样式时，请勿添加该样式类） -->
+        <ul class="carousel-dots-box default">
+            <!-- .active 激活 -->
+            <li class="carousel-dots-item"></li>
+            <li class="carousel-dots-item"></li>
+            <li class="carousel-dots-item"></li>
+        </ul>
+    </div>
+</carousel-component>
+```
+
+### 卡片横向不循环轮播
+设置`carousel-item`宽度
+```
+<style>
+    carousel-component[vertical="false"] carousel-item {
+        width: 80vw !important;
+    }
+</style>
+
+<carousel-component
+    loop="false"
+    threshold="50"
+    margin="15"
+    vertical="false"
+    interval="5000"
+    autoplay="false"
+    index="0"
+>
+    <carousel-item>
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3156021755,433235465&fm=26&gp=0.jpg" alt="">
+    </carousel-item>
+    <carousel-item>
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1121472188,874182665&fm=26&gp=0.jpg" alt="">
+    </carousel-item>
+    <carousel-item>
+        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2215911299,1915319398&fm=15&gp=0.jpg" alt="">
+    </carousel-item>
+
+    <!-- 小圆点列表插槽，需要自行遍历 -->
+    <div slot="dots">
+        <!-- .default 默认样式（如需自定义样式时，请勿添加该样式类） -->
+        <ul class="carousel-dots-box default">
+            <!-- .active 激活 -->
+            <li class="carousel-dots-item"></li>
+            <li class="carousel-dots-item"></li>
+            <li class="carousel-dots-item"></li>
+        </ul>
+    </div>
+</carousel-component>
+```
+
+### 卡片横向循环轮播
+设置`carousel-item`宽度
+```
+<style>
+    carousel-component[vertical="false"] carousel-item {
+        width: 80vw !important;
+    }
+</style>
+
+<carousel-component
+    loop="true"
+    threshold="50"
+    margin="15"
+    vertical="false"
+    interval="5000"
+    autoplay="false"
+    index="0"
+>
+    <carousel-item>
+        <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3156021755,433235465&fm=26&gp=0.jpg" alt="">
+    </carousel-item>
+    <carousel-item>
+        <img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1121472188,874182665&fm=26&gp=0.jpg" alt="">
+    </carousel-item>
+    <carousel-item>
+        <img src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2215911299,1915319398&fm=15&gp=0.jpg" alt="">
+    </carousel-item>
+
+    <!-- 小圆点列表插槽，需要自行遍历 -->
+    <div slot="dots">
+        <!-- .default 默认样式（如需自定义样式时，请勿添加该样式类） -->
+        <ul class="carousel-dots-box default">
+            <!-- .active 激活 -->
+            <li class="carousel-dots-item"></li>
+            <li class="carousel-dots-item"></li>
+            <li class="carousel-dots-item"></li>
+        </ul>
+    </div>
+</carousel-component>
+```
+
 ### 自动轮播
 当`<carousel-component/>`元素的属性`[loop="true"]`时，设置`[autoplay=true]`为自动轮播
 
