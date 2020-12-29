@@ -1,3 +1,7 @@
+export {default as Touch} from "./touch"
+
+export {default as createCustomElement} from "./custom-clement"
+
 /**
  * 工具类
  */
@@ -79,13 +83,13 @@ class $$ {
                     this.CLICKTOTOUCH = true;
                 })
 
-                node.addEventListener('touchend', function (ev:any) {
+                node.addEventListener('touchend', function (ev:Event) {
                     // @ts-ignore
                     !this.CLICKTOTOUCH ? handler(ev) : "";
                 })
 
             } else {
-                node.addEventListener(type, function (ev) {
+                node.addEventListener(type, function (ev:Event) {
                     handler.call(this, ev)
                 })
             }
@@ -148,6 +152,212 @@ class $$ {
         } else {
             return this.selector;
         }
+    }
+
+    /**
+     * 指定选择器索引
+     * @param i             DOM数组指定下标
+     * @returns {*[]|*}     返回DOM数组或单个DOM
+     */
+    eq(i?: number) {
+        if (typeof i !== "undefined") {
+            i %= this.selector.length;
+
+            if (i < 0) {
+                i = this.selector.length + i;
+            }
+
+            this.selector = [this.selector[i]];
+        }
+
+        return this;
+    }
+
+    /**
+     * 获取父节点
+     */
+    parent() {
+        this.selector = this.each(node => node.parentNode, true);
+        this.length = this.selector.length;
+        return this;
+    }
+
+    /**
+     * 获取多层父节点
+     * @param selector          选择器
+     * @param isIncludeSelf     是否包含自己（从自身开始往上查找）
+     */
+    parents(selector, isIncludeSelf = true) {
+        this.path(selector, true, isIncludeSelf);
+
+        return this;
+    }
+
+    path(selector, isFilterChild = false, isIncludeSelf) {
+        let result = [];
+
+        if (typeof selector === "object" && selector.path) {
+            result = selector.path;
+
+        } else {
+            let node = typeof selector === "object" && selector.target
+                ? [selector.target]
+                : this.selector;
+
+            result = [...node];
+
+            this.each(node, item => {
+                while (item) {
+                    item = item.parentNode;
+                    result.push(item);
+
+                    if (!item || typeof item !== "object" || item.nodeType === 9) break;
+                }
+            });
+        }
+
+        if (selector && typeof selector === "string") {
+            selector = selector
+                .replace(/\s/g, "")
+                .split(",");
+
+            let filterResult = [],
+                isBool = false;
+
+            this.each(result, (node, index) => {
+                if (!node || node.nodeType === 9) return;
+                let isFind = false;
+                this.each(selector, item => {
+                    let classAttr = node.getAttribute("class");
+
+                    classAttr = item.includes(".") && classAttr
+                        ? classAttr.replace(/\s+/g, " ").split(" ")
+                        : "";
+
+                    let isId = item.includes("#") && item === `#${node.id}`,
+                        isClass = classAttr && classAttr.includes(item.replace(/./, "")),
+                        isTagName = item.toUpperCase() === node.tagName;
+
+                    if (isId || isClass || isTagName) {
+                        isBool = isFind = true;
+                        return false;
+                    }
+                });
+
+                if (!index && !isIncludeSelf) return;
+
+                !isFilterChild ? filterResult.push(node) : "";
+
+                if (isFind) {
+                    isFilterChild ? filterResult.push(node) : "";
+
+                    return false;
+                }
+            });
+
+            result = isBool ? filterResult : [];
+        }
+
+        this.selector = result;
+        this.length = result.length;
+        return this;
+    }
+
+    /**
+     * 克隆节点
+     * @param deep  是否深拷贝
+     */
+    clone(deep = true) {
+        return this.each(node => node.cloneNode(deep));
+    }
+
+    /**
+     * 获取索引值
+     */
+    index() {
+        return this.each(item => {
+            return Array.from(item.parentNode.children).indexOf(item)
+        })
+    }
+
+    /**
+     * 设置或获取样式
+     * @param styleName     样式名，当只有该参数时，将返回该样式值
+     * @param styleValue    样式值
+     * @param isCss3        是否css3属性
+     */
+    css(styleName: string | object, styleValue = undefined, isCss3 = false) {
+
+        if (typeof styleName === "string" && typeof styleValue === "undefined") {
+            return this.getStyle(styleName);
+        }
+
+        styleName.constructor === Object ? isCss3 = styleValue : "";
+
+        let propsName = ["width", "height", "font-size", "padding", "margin", "top", "right", "bottom", "left"],
+
+            styleHandler = (node, name, value) => {
+                propsName.includes(name) && typeof value == "number"
+                    ? value = `${value}px`
+                    : "";
+
+                if (isCss3) {
+                    let newStyleName = name.replace(name.charAt(0), name.charAt(0).toUpperCase());
+                    node.style["Ms" + newStyleName] = value;
+                    node.style["Moz" + newStyleName] = value;
+                    node.style["Webkit" + newStyleName] = value;
+                }
+
+                node.style[name] = value;
+            };
+
+        this.each(node => {
+            if (!node) return;
+
+            if (styleName.constructor === Object) {
+                this.each(
+                    styleName,
+                    (key, val) => styleHandler(node, key, val)
+                );
+
+            } else if (styleName && styleValue) {
+                styleHandler(node, styleName, styleValue);
+            }
+        });
+
+        return this;
+    }
+
+    /**
+     * 获取样式
+     * @param styleName     样式名
+     */
+    getStyle(styleName) {
+        let result = this.each(item => {
+            item.nodeType === 3 ? item = item.parentNode : "";
+
+            let styleValue = typeof item.currentStyle !== "undefined" ? item.currentStyle[styleName] : getComputedStyle(item, null)[styleName];
+
+            return styleValue.indexOf("px") > -1 ? parseFloat(styleValue) : styleValue;
+        });
+
+        return result.length === 1 ? result[0] : result;
+    }
+
+    /**
+     * 获取元素offset value
+     */
+    offset() {
+        let result = this.each(item => {
+            return {
+                top: item.offsetTop,
+                left: item.offsetLeft,
+                width: item.offsetWidth,
+                height: item.offsetHeight,
+            }
+        });
+
+        return result.length === 1 ? result[0] : result;
     }
 
     /**
@@ -422,7 +632,7 @@ export function pxToVw(...args:any) {
         res += " ";
     }
 
-    return res
+    return res.trim()
 }
 
 /**
@@ -432,15 +642,3 @@ export function $(options: any) {
     return new $$(options);
 }
 
-/**
- * 自定义元素装饰器
- */
-export function createCustomElement(name: string, constructor: CustomElementConstructor)  {
-    return class {
-        constructor() {
-            !customElements.get(name)
-                ? customElements.define(name, constructor)
-                : "";
-        }
-    }
-}
