@@ -7,5 +7,9 @@
     "module": "esnext",
     "allowJs": true
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
+  "include": [
+    "src",
+    "tsconfig-style.d.ts"
+  ]
 }
