@@ -1,0 +1,10 @@
+breadcrumb-component
+    display: flex
+    flex-wrap: wrap
+    breadcrumb-item
+        display: inline-flex
+        color: var(--color-gray-light)
+        &:last-of-type
+            color: var(--color-black)
+            &::after
+                display: none !important
