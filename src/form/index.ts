@@ -1,6 +1,8 @@
 
-export {default as Checkbox} from "./checkbox"
+import "./checkbox"
 
-export {default as Radio} from "./radio"
+import "./input"
 
-export {default as Switch} from "./switch"
+import "./radio"
+
+import "./switch"

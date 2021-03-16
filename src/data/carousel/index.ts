@@ -1,8 +1,6 @@
 import {$, createCustomElement, Touch} from "../../utils"
-import CarouselItem from "./item"
+import "./item"
 import {DOMHandlerInterface} from "./index.d"
-
-new CarouselItem();
 
 /**
  * 微章组件
@@ -51,8 +49,6 @@ class CarouselComponent extends HTMLElement {
         this.pageXOrY = this.isVertical ? 'pageY' : 'pageX';
         this.widthOrHeight = this.isVertical ? 'height' : 'width';
         this.leftOrTop = this.isVertical ? 'top' : 'left';
-
-        import("./index.sass");
 
         const shadow = this.attachShadow({mode: 'open'})
 

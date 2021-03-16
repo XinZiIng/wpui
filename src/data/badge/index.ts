@@ -1,7 +1,5 @@
 import {$, createCustomElement, pxToVw} from "../../utils"
-import BadgeItem from "./item";
-
-new BadgeItem()
+import "./item";
 
 /**
  * 微章组件
@@ -14,8 +12,6 @@ class BadgeComponent extends HTMLElement {
      */
     constructor() {
         super();
-
-        import('./index.sass')
 
         const shadow = this.attachShadow({mode: 'open'})
 
@@ -86,7 +82,6 @@ class BadgeComponent extends HTMLElement {
             </style>  
                 
             <slot></slot>
-
         `
     }
 }

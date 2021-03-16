@@ -1,8 +1,6 @@
-import Drawer from "./../drawer"
+import "./../drawer"
 import {$, pxToVw} from "../../utils"
 import OptionsInterface from "./index.d"
-
-new Drawer();
 
 /**
  * 弹出式菜单

@@ -1,10 +1,14 @@
 
-export {default as ActionSheet} from "./action-sheet"
+import "./action-sheet"
 
-export {default as Drawer} from "./drawer"
+import "./dialog"
 
-export {default as HalfScreenDialog} from "./half-screen-dialog"
+import "./drawer"
 
-export {default as Loading} from "./loading"
+import "./half-screen-dialog"
+
+import "./loading"
+
+import "./popover"
 
 export {default as Toast} from "./toast"

@@ -1,7 +1,5 @@
 import {$, createCustomElement, pxToVw} from "../../utils"
-import BreadcrumbItem from "./item";
-
-new BreadcrumbItem();
+import "./item";
 
 /**
  * 面包屑组件
@@ -14,8 +12,6 @@ class BreadcrumbComponent extends HTMLElement {
      */
     constructor() {
         super();
-
-        import("./index.sass")
 
         const shadow = this.attachShadow({mode: 'open'})
 
@@ -82,9 +78,6 @@ class BreadcrumbComponent extends HTMLElement {
     render() {
         return `
             <style>
-                ::slotted(breadcrumb-item) {
-                    
-                }
                 ::slotted(breadcrumb-item)::after {
                     display: block;
                     content: "${$(this).attr("separator") || "/"}";

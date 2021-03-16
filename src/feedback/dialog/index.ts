@@ -1,7 +1,5 @@
-import Drawer from "./../drawer"
+import "./../drawer"
 import {$, pxToVw, createCustomElement} from "../../utils"
-
-new Drawer();
 
 /**
  * 对话框
