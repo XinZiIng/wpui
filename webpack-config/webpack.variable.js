@@ -38,7 +38,7 @@ VARIABLE.output = {
     publicPath: IsProduction ? "./" : "/",
     css: `css/[name]${IsProduction ? ".min" : "[hash]"}.css`,
     filename: `js/[name]${IsProduction ? ".min" : "[hash]"}.js`,
-    fonts: `fonts/[name].[ext]`,
+    fonts: `../fonts/[name].[ext]`,
     media: `media/[name].[ext]`,
     img: `img/[name].[ext]`,
     limit: 8192,
