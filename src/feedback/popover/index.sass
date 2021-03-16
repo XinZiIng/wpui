@@ -1,0 +1,14 @@
+popover-component
+    display: inline-block
+    &[disabled="true"]
+        [slot="reference"]
+            cursor: not-allowed !important
+
+    [slot="content"]
+        display: none
+
+    [slot="reference"]
+        cursor: pointer
+
+    input[slot="reference"]
+        cursor: auto
