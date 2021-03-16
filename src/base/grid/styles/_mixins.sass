@@ -22,6 +22,9 @@
                     display: block
                     width: percentage($i / $grid-columns)
 
+                .col-padding-#{$mediaSize}
+                    padding: 0 var(--grid-padding-#{$mediaSize})
+
                 .col-offset-#{$i}
                     margin-left: percentage($i / $grid-columns)
 
@@ -40,6 +43,9 @@
                 .col-#{$mediaSize}-#{$i}
                     display: block
                     width: percentage($i / $grid-columns)
+
+                .col-padding-#{$mediaSize}
+                        padding: 0 var(--grid-padding-#{$mediaSize})
 
                 .col-offset-#{$mediaSize}-#{$i}
                     margin-left: percentage($i / $grid-columns)
