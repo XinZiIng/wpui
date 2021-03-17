@@ -24,7 +24,7 @@ export default class ActionSheet {
      * @param bool      true显示，反之隐藏
      */
     setVisible(bool:boolean) {
-        $(`#ActionSheet-${this.ID}`).attr("visible", bool);
+        $(`#ActionSheet-${this.ID}`).attr("visible", bool.toString());
     }
 
     /**

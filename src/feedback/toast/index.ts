@@ -97,7 +97,7 @@ export default class Toast {
 
         // 延时隐藏
         setTimeout(
-            () => $(drawerComponent).attr("visible", false),
+            () => $(drawerComponent).attr("visible", "false"),
             delay || 2500
         );
 

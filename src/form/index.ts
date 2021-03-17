@@ -5,4 +5,6 @@ import "./input"
 
 import "./radio"
 
+import "./select"
+
 import "./switch"

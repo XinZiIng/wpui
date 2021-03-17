@@ -541,7 +541,7 @@ class CarouselComponent extends HTMLElement {
 
             newActiveIndex %= this.carouselItemsElement.length;
 
-            $(this).attr("index", newActiveIndex)
+            $(this).attr("index", newActiveIndex.toString())
         }, $(this).attr("interval") || 5000)
     }
 

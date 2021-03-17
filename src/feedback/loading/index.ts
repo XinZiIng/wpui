@@ -119,7 +119,7 @@ class LoadingComponent extends HTMLElement {
 
         setTimeout(() => {
             $(el).removeClass("show", "hide", "visible");
-            $(this).attr("visible", false);
+            $(this).attr("visible", "false");
         }, 300)
     }
 

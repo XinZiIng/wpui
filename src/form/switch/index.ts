@@ -83,7 +83,7 @@ class SwitchComponent extends HTMLElement {
 
                 let isChecked = !($(self).attr("checked") === "true");
 
-                $(self).attr("checked", isChecked);
+                $(self).attr("checked", isChecked.toString());
 
                 self.dispatch('changed');
             })
