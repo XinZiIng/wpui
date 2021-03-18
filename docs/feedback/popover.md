@@ -9,7 +9,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -26,7 +26,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
     visible="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
@@ -46,7 +46,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -59,7 +59,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
     class="margin-right-md margin-left-md"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
@@ -73,7 +73,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -96,7 +96,7 @@
         border-radius="0"
         background="white"
         disabled="false"
-        arrow="true"
+        triangle="true"
     >
         <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
@@ -112,7 +112,7 @@
         border-radius="0"
         background="white"
         disabled="false"
-        arrow="true"
+        triangle="true"
         style="margin: 0 10px"
     >
         <div style="white-space: nowrap; padding: 6px 8px;">
@@ -129,7 +129,7 @@
         border-radius="0"
         background="white"
         disabled="false"
-        arrow="true"
+        triangle="true"
     >
         <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
@@ -150,7 +150,7 @@
             background="white"
             visible="false"
             disabled="false"
-            arrow="true"
+            triangle="true"
         >
             <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
@@ -166,7 +166,7 @@
             border-radius="0"
             background="white"
             disabled="false"
-            arrow="true"
+            triangle="true"
             style="margin: 10px 0;"
         >
             <div style="white-space: nowrap; padding: 6px 8px;">
@@ -183,7 +183,7 @@
             border-radius="0"
             background="white"
             disabled="false"
-            arrow="true"
+            triangle="true"
         >
             <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
@@ -202,7 +202,7 @@
             border-radius="0"
             background="white"
             disabled="false"
-            arrow="true"
+            triangle="true"
         >
             <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
@@ -218,7 +218,7 @@
             border-radius="0"
             background="white"
             disabled="false"
-            arrow="true"
+            triangle="true"
             style="margin: 10px 0;"
         >
             <div style="white-space: nowrap; padding: 6px 8px;">
@@ -235,7 +235,7 @@
             border-radius="0"
             background="white"
             disabled="false"
-            arrow="true"
+            triangle="true"
         >
             <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
@@ -255,7 +255,7 @@
         border-radius="0"
         background="white"
         disabled="false"
-        arrow="true"
+        triangle="true"
     >
         <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
@@ -271,7 +271,7 @@
         border-radius="0"
         background="white"
         disabled="false"
-        arrow="true"
+        triangle="true"
         style="margin: 0 10px;"
     >
         <div style="white-space: nowrap; padding: 6px 8px;">
@@ -288,7 +288,7 @@
         border-radius="0"
         background="white"
         disabled="false"
-        arrow="true"
+        triangle="true"
     >
         <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
@@ -301,8 +301,8 @@
 </div>
 ```
 
-### 箭头
-通过设置组件的`[arrow=xx]`属性值可修改箭头是否显示
+### 三角形图标
+通过设置组件的`[triangle=xx]`属性值可修改三角形图标是否显示
 ```
 <popover-component
     placement="bottomLeft"
@@ -310,7 +310,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="false"
+    triangle="false"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -323,7 +323,7 @@
     border-radius="0"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -340,7 +340,7 @@
     border-radius="20"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -357,7 +357,7 @@
     border-radius="20"
     background="#ebebeb"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -374,7 +374,7 @@
     border-radius="20"
     background="white"
     disabled="false"
-    arrow="true"
+    triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
@@ -387,7 +387,7 @@
     border-radius="20"
     background="white"
     disabled="true"
-    arrow="true"
+    triangle="true"
     class="margin-left-md"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
@@ -404,7 +404,7 @@
 `trigger` | 定义该组件触发弹出框方式，可选值有：`click`、`hover`、`focus` | `click` | -
 `border-radius` | 定义该组件弹出窗圆角样式 | `0` | -
 `background` | 定义该组件弹出窗背景色样式 | `white` | -
-`arrow` | 定义该组件弹出窗是否显示箭头图标，接收`true`或`false` | `true` | -
+`triangle` | 定义该组件弹出窗是否显示三角形图标，接收`true`或`false` | `true` | -
 `disabled` | 定义该组件是否禁用触发弹出窗，接收`true`或`false` | `false` | -
 
 ## Slot
