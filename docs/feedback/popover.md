@@ -7,7 +7,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
 >
@@ -24,7 +24,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
     visible="true"
@@ -44,7 +44,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
 >
@@ -57,7 +57,7 @@
     placement="bottomLeft"
     trigger="hover"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
     class="margin-right-md margin-left-md"
@@ -71,7 +71,7 @@
     placement="bottomLeft"
     trigger="focus"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
 >
@@ -94,7 +94,7 @@
         placement="topLeft"
         trigger="click"
         border-radius="0"
-        background="white"
+        color="white"
         disabled="false"
         triangle="true"
     >
@@ -110,7 +110,7 @@
         placement="top"
         trigger="click"
         border-radius="0"
-        background="white"
+        color="white"
         disabled="false"
         triangle="true"
         style="margin: 0 10px"
@@ -127,7 +127,7 @@
         placement="topRight"
         trigger="click"
         border-radius="0"
-        background="white"
+        color="white"
         disabled="false"
         triangle="true"
     >
@@ -147,7 +147,7 @@
             placement="leftTop"
             trigger="click"
             border-radius="10"
-            background="white"
+            color="white"
             visible="false"
             disabled="false"
             triangle="true"
@@ -164,7 +164,7 @@
             placement="left"
             trigger="click"
             border-radius="0"
-            background="white"
+            color="white"
             disabled="false"
             triangle="true"
             style="margin: 10px 0;"
@@ -181,7 +181,7 @@
             placement="leftBottom"
             trigger="click"
             border-radius="0"
-            background="white"
+            color="white"
             disabled="false"
             triangle="true"
         >
@@ -200,7 +200,7 @@
             placement="rightTop"
             trigger="click"
             border-radius="0"
-            background="white"
+            color="white"
             disabled="false"
             triangle="true"
         >
@@ -216,7 +216,7 @@
             placement="right"
             trigger="click"
             border-radius="0"
-            background="white"
+            color="white"
             disabled="false"
             triangle="true"
             style="margin: 10px 0;"
@@ -233,7 +233,7 @@
             placement="rightBottom"
             trigger="click"
             border-radius="0"
-            background="white"
+            color="white"
             disabled="false"
             triangle="true"
         >
@@ -253,7 +253,7 @@
         placement="bottomLeft"
         trigger="click"
         border-radius="0"
-        background="white"
+        color="white"
         disabled="false"
         triangle="true"
     >
@@ -269,7 +269,7 @@
         placement="bottom"
         trigger="click"
         border-radius="0"
-        background="white"
+        color="white"
         disabled="false"
         triangle="true"
         style="margin: 0 10px;"
@@ -286,7 +286,7 @@
         placement="bottomRight"
         trigger="click"
         border-radius="0"
-        background="white"
+        color="white"
         disabled="false"
         triangle="true"
     >
@@ -308,7 +308,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="false"
 >
@@ -321,7 +321,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="0"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
 >
@@ -338,7 +338,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="20"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
 >
@@ -348,20 +348,20 @@
 </popover-component>
 ```
 
-### 背景色
-设置组件的`[backgrounds=xx]`属性值可修改弹出窗背景颜色样式
+### 颜色
+设置组件的`[color=xx]`属性值可修改弹出窗背景色、三角形颜色样式
 ```
 <popover-component
     placement="bottomLeft"
     trigger="click"
     border-radius="20"
-    background="#ebebeb"
+    color="#ebebeb"
     disabled="false"
     triangle="true"
 >
     <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
-    <button slot="reference">修改背景样式</button>
+    <button slot="reference">修改颜色</button>
 </popover-component>
 ```
 
@@ -372,7 +372,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="20"
-    background="white"
+    color="white"
     disabled="false"
     triangle="true"
 >
@@ -385,7 +385,7 @@
     placement="bottomLeft"
     trigger="click"
     border-radius="20"
-    background="white"
+    color="white"
     disabled="true"
     triangle="true"
     class="margin-left-md"
@@ -403,7 +403,7 @@
 `placement` |  定义该组件弹出窗显示方式，可选值有：`topLeft`、`top`、`topRight`、`leftTop`、`left` 、`leftBottom` 、`rightTop` 、`right` 、`rightBottom` 、`bottomLeft` 、`bottom`、`bottomRight` | `bottomLeft` | -
 `trigger` | 定义该组件触发弹出框方式，可选值有：`click`、`hover`、`focus` | `click` | -
 `border-radius` | 定义该组件弹出窗圆角样式 | `0` | -
-`background` | 定义该组件弹出窗背景色样式 | `white` | -
+`color` | 定义该组件弹出窗背景色、三角形颜色样式 | `white` | -
 `triangle` | 定义该组件弹出窗是否显示三角形图标，接收`true`或`false` | `true` | -
 `disabled` | 定义该组件是否禁用触发弹出窗，接收`true`或`false` | `false` | -
 
