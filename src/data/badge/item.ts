@@ -1,20 +1,16 @@
-import {$, createCustomElement, pxToVw} from "../../utils"
+import {$, createCustomElement, pxToVw, CreateHTMLElement} from "../../utils"
 
 /**
  * 微章圆点组件
  */
-class BadgeItemComponent extends HTMLElement {
-    private isConnect: Boolean;
-
+class BadgeItemComponent extends CreateHTMLElement {
     /**
      * 构造器
      */
     constructor() {
         super();
 
-        const shadow = this.attachShadow({mode: 'open'})
-
-        shadow.innerHTML = this.render();
+        this.shadow.innerHTML = this.render();
     }
 
     /**
@@ -90,39 +86,6 @@ class BadgeItemComponent extends HTMLElement {
         if (changeAttrName === "count-color") {
             $(badgeCount).css("color", newAttrValue);
         }
-    }
-
-    /**
-     * 当自定义元素第一次被连接到文档DOM时被调用
-     */
-    connectedCallback() {
-        this.isConnect = true;
-
-        this.dispatch('change');
-    }
-
-    /**
-     * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
-     */
-    disconnectedCallback() {
-        this.dispatch('disconnect');
-    }
-
-    /**
-     * 当自定义元素被移动到新文档时被调用
-     */
-    adoptedCallback() {
-        this.dispatch('adopt');
-    }
-
-    /**
-     * 派发事件
-     * @param type      事件类型
-     */
-    dispatch(type) {
-        this.dispatchEvent(new CustomEvent(type, {
-            detail: {},
-        }))
     }
 
     /**

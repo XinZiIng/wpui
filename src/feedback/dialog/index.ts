@@ -1,19 +1,15 @@
 import "./../drawer"
-import {$, pxToVw, createCustomElement} from "../../utils"
+import {$, pxToVw, createCustomElement, CreateHTMLElement} from "../../utils"
 
 /**
  * 对话框
  * @docs    请查阅README.md文档
  */
-class DialogComponent extends HTMLElement {
-    private shadow: ShadowRoot;
-
+class DialogComponent extends CreateHTMLElement {
     constructor() {
         super();
 
-        this.shadow = this.attachShadow({mode: 'open'});
-
-        this.shadow.appendChild(this.render());
+        this.shadow.innerHTML = this.render();
     }
 
     /**
@@ -37,28 +33,6 @@ class DialogComponent extends HTMLElement {
                 .attr("visible", newValue);
         }
     }
-
-    /**
-     * 当自定义元素第一次被连接到文档DOM时被调用
-     */
-    connectedCallback() {
-        this.dispatch('connect');
-    }
-
-    /**
-     * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
-     */
-    disconnectedCallback() {
-        this.dispatch('disconnect');
-    }
-
-    /**
-     * 当自定义元素被移动到新文档时被调用
-     */
-    adoptedCallback() {
-        this.dispatch('adopt');
-    }
-
     /**
      * 派发事件
      * @param type      事件类型
@@ -77,10 +51,8 @@ class DialogComponent extends HTMLElement {
      */
     render() {
         let borderRadius = $(this).attr("border-radius") || 24
-        let div = document.createElement("div"),
-            drawerComponent;
 
-        div.innerHTML = `
+        return `
             <drawer-component 
                 visible="${$(this).attr("visible") || false}"
                 mask-bg="${$(this).attr("mask-bg") || 'var(--mask-black)'}"
@@ -137,8 +109,6 @@ class DialogComponent extends HTMLElement {
                 </div>
             </drawer-component>
         `
-
-        return div.children[0];
     }
 }
 

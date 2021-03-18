@@ -1,19 +1,16 @@
-import {createCustomElement} from "../../utils"
+import {createCustomElement, CreateHTMLElement} from "../../utils"
 
 /**
  * 面包屑子项
  */
-class BreadcrumbItem extends HTMLElement {
-
+class BreadcrumbItem extends CreateHTMLElement {
     /**
      * 构造器
      */
     constructor() {
         super();
 
-        const shadow = this.attachShadow({mode: 'open'})
-
-        shadow.innerHTML = this.render();
+        this.shadow.innerHTML = this.render();
     }
 
     /**

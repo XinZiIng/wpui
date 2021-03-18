@@ -1,12 +1,11 @@
-import {$, createCustomElement, Touch} from "../../utils"
-import "./item"
+import {$, createCustomElement, Touch, CreateHTMLElement} from "../../utils"
 import {DOMHandlerInterface} from "./index.d"
+import "./item"
 
 /**
  * 微章组件
  */
-class CarouselComponent extends HTMLElement {
-    private isConnect: Boolean;                     // 是否组件元素触发了connectedCallback回调
+class CarouselComponent extends CreateHTMLElement {
     private isVertical: boolean;                    // 是否垂直样式
     private isLoop: boolean;                        // 是否无缝循环轮播
     private lock: boolean;
@@ -50,9 +49,7 @@ class CarouselComponent extends HTMLElement {
         this.widthOrHeight = this.isVertical ? 'height' : 'width';
         this.leftOrTop = this.isVertical ? 'top' : 'left';
 
-        const shadow = this.attachShadow({mode: 'open'})
-
-        shadow.innerHTML = this.render();
+        this.shadow.innerHTML = this.render();
     }
     /**
      * 监听属性
@@ -118,20 +115,6 @@ class CarouselComponent extends HTMLElement {
 
             this.loopTouchStart();
         }, 100)
-    }
-
-    /**
-     * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
-     */
-    disconnectedCallback() {
-        this.dispatch('disconnect');
-    }
-
-    /**
-     * 当自定义元素被移动到新文档时被调用
-     */
-    adoptedCallback() {
-        this.dispatch('adopt');
     }
 
     /**

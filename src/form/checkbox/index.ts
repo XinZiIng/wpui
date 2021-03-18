@@ -1,19 +1,15 @@
-import {$, pxToVw, createCustomElement} from "../../utils"
+import {$, pxToVw, createCustomElement, CreateHTMLElement} from "../../utils"
 
 /**
  * 复选框
  * @docs    请查阅README.md文档
  */
-class CheckboxComponent extends HTMLElement {
-    private shadow: ShadowRoot;
-    private isConnect: Boolean;
+class CheckboxComponent extends CreateHTMLElement {
     /**
      * 构造器
      */
     constructor() {
         super();
-
-        this.shadow = this.attachShadow({mode: 'open'})
 
         this.shadow.innerHTML = this.render();
     }
@@ -85,20 +81,6 @@ class CheckboxComponent extends HTMLElement {
         this.dispatch('connect');
 
         this.onClick();
-    }
-
-    /**
-     * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
-     */
-    disconnectedCallback() {
-        this.dispatch('disconnect');
-    }
-
-    /**
-     * 当自定义元素被移动到新文档时被调用
-     */
-    adoptedCallback() {
-        this.dispatch('adopt');
     }
 
     /**

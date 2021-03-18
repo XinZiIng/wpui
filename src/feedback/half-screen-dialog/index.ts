@@ -1,17 +1,13 @@
 import "./../drawer"
-import {$, pxToVw, createCustomElement} from "../../utils"
+import {$, pxToVw, createCustomElement, CreateHTMLElement} from "../../utils"
 
 /**
  * 半屏对话框
  * @docs    请查阅README.md文档
  */
-class HalfScreenDialogComponent extends HTMLElement {
-    private shadow: ShadowRoot;
-
+class HalfScreenDialogComponent extends CreateHTMLElement {
     constructor() {
         super();
-
-        this.shadow = this.attachShadow({mode: 'open'});
 
         this.shadow.appendChild(this.render());
     }
@@ -39,27 +35,6 @@ class HalfScreenDialogComponent extends HTMLElement {
     }
 
     /**
-     * 当自定义元素第一次被连接到文档DOM时被调用
-     */
-    connectedCallback() {
-        this.dispatch('connect');
-    }
-
-    /**
-     * 当自定义元素与文档DOM断开连接时被调用（关闭当前窗口不会被调用）
-     */
-    disconnectedCallback() {
-        this.dispatch('disconnect');
-    }
-
-    /**
-     * 当自定义元素被移动到新文档时被调用
-     */
-    adoptedCallback() {
-        this.dispatch('adopt');
-    }
-
-    /**
      * 派发事件
      * @param type      事件类型
      */
@@ -69,6 +44,33 @@ class HalfScreenDialogComponent extends HTMLElement {
                 visible: $(this).attr('visible') === "true",
             }
         }))
+    }
+
+    /**
+     *
+     * @param drawerComponent
+     */
+    bind(drawerComponent) {
+        // 抽屉组件绑定事件
+        $(drawerComponent)
+            .on("change", ev => {
+                $(this).attr("visible", ev.detail.visible)
+                this.dispatch("changed")
+            })
+
+        // 关闭
+        $(drawerComponent)
+            .find(".half-screen-dialog-component")
+            .on("click", ev => {
+                // 隐藏
+                if (
+                    $(ev.target).hasClass("half-screen-dialog-close-box")
+                    || $(ev.target.parentNode).hasClass("half-screen-dialog-close-box")
+                    || $(ev.target.parentNode.parentNode).hasClass("half-screen-dialog-close-box")
+                ) {
+                    this.setAttribute("visible", "false")
+                }
+            })
     }
 
     /**
@@ -151,33 +153,6 @@ class HalfScreenDialogComponent extends HTMLElement {
 
         this.bind(drawerComponent);
         return drawerComponent;
-    }
-
-    /**
-     *
-     * @param drawerComponent
-     */
-    bind(drawerComponent) {
-        // 抽屉组件绑定事件
-        $(drawerComponent)
-            .on("change", ev => {
-                $(this).attr("visible", ev.detail.visible)
-                this.dispatch("changed")
-            })
-
-        // 关闭
-        $(drawerComponent)
-            .find(".half-screen-dialog-component")
-            .on("click", ev => {
-                // 隐藏
-                if (
-                    $(ev.target).hasClass("half-screen-dialog-close-box")
-                    || $(ev.target.parentNode).hasClass("half-screen-dialog-close-box")
-                    || $(ev.target.parentNode.parentNode).hasClass("half-screen-dialog-close-box")
-                ) {
-                    this.setAttribute("visible", "false")
-                }
-            })
     }
 }
 
