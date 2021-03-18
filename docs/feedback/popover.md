@@ -11,7 +11,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">click me</button>
 </popover-component>
@@ -29,7 +29,7 @@
     arrow="true"
     visible="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">click me</button>
 </popover-component>
@@ -48,7 +48,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">click</button>
 </popover-component>
@@ -62,7 +62,7 @@
     arrow="true"
     class="margin-right-md margin-left-md"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">mouse</button>
 </popover-component>
@@ -75,7 +75,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <input type="text" slot="reference" placeholder="focus"/>   
 </popover-component>
@@ -98,7 +98,7 @@
         disabled="false"
         arrow="true"
     >
-        <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+        <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
@@ -115,7 +115,7 @@
         arrow="true"
         style="margin: 0 10px"
     >
-        <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+        <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
@@ -131,7 +131,7 @@
         disabled="false"
         arrow="true"
     >
-        <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+        <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
@@ -152,7 +152,7 @@
             disabled="false"
             arrow="true"
         >
-            <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+            <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
@@ -169,7 +169,7 @@
             arrow="true"
             style="margin: 10px 0;"
         >
-            <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+            <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
@@ -185,7 +185,7 @@
             disabled="false"
             arrow="true"
         >
-            <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+            <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
@@ -204,7 +204,7 @@
             disabled="false"
             arrow="true"
         >
-            <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+            <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
@@ -221,7 +221,7 @@
             arrow="true"
             style="margin: 10px 0;"
         >
-            <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+            <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
@@ -237,7 +237,7 @@
             disabled="false"
             arrow="true"
         >
-            <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+            <div style="white-space: nowrap; padding: 6px 8px;">
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
                 <p style="white-space: nowrap">popover content</p>
@@ -257,7 +257,7 @@
         disabled="false"
         arrow="true"
     >
-        <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+        <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
@@ -274,7 +274,7 @@
         arrow="true"
         style="margin: 0 10px;"
     >
-        <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+        <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
@@ -290,7 +290,7 @@
         disabled="false"
         arrow="true"
     >
-        <div slot="content" style="white-space: nowrap; padding: 6px 8px;">
+        <div style="white-space: nowrap; padding: 6px 8px;">
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
             <p style="white-space: nowrap">popover content</p>
@@ -312,7 +312,7 @@
     disabled="false"
     arrow="false"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">箭头隐藏</button>
 </popover-component>
@@ -325,7 +325,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">箭头显示</button>
 </popover-component>
@@ -342,7 +342,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">修改圆角样式</button>
 </popover-component>
@@ -359,7 +359,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">修改背景样式</button>
 </popover-component>
@@ -376,7 +376,7 @@
     disabled="false"
     arrow="true"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">可用状态</button>
 </popover-component>
@@ -390,7 +390,7 @@
     arrow="true"
     class="margin-left-md"
 >
-    <div slot="content" style="white-space: nowrap; padding: 6px 8px;">popover content</div>
+    <div style="white-space: nowrap; padding: 6px 8px;">popover content</div>
 
     <button slot="reference">禁用状态</button>
 </popover-component>
@@ -411,4 +411,3 @@
 插槽名 | 描述
 --- | --- 
 `reference` |  定义激活该组件弹窗的参考元素
-`content` |  定义该组件弹窗内容元素
