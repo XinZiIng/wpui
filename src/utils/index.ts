@@ -439,8 +439,7 @@ class $$ {
             let result: Array<any> = [];
 
             this.each((node: HTMLElement) => {
-                let value = node.getAttribute(attrName);
-                value !== null ? result.push(value) : "";
+                result.push(node.getAttribute(attrName));
             });
 
             return !result.length
@@ -473,11 +472,33 @@ class $$ {
     }
 
     /**
+     * DOM值操作
+     * @param value              将要赋值的属性值
+     * @return {undefined|*|[]|$}  attrValue参数不存在时,返回attrName属性值
+     */
+    val(value?: string) {
+        if (typeof value === "undefined") {
+            let result: Array<any> = this.each((node: HTMLInputElement) => {
+                return node.value
+            });
+
+            return !result.length
+                ? undefined
+                : (result.length === 1 ? result[0] : result);
+        } else {
+            this.each((node: HTMLInputElement) => {
+                node.value = value
+            });
+            return this;
+        }
+    }
+
+    /**
      * DOM内联html操作
      * @param html          将要填充的html字符串
      * @return {*|[]|$}    html参数不存在时,将返回内联html参数字符串
      */
-    html(html: any) {
+    html(html?: any) {
         return this.htmlOrTextHandler('innerHTML', html);
     }
 
@@ -486,7 +507,7 @@ class $$ {
      * @param text          将要填充的text字符串
      * @return {*|[]|$}    text参数不存在时,将返回内联text参数字符串
      */
-    text(text: any) {
+    text(text?: any) {
         return this.htmlOrTextHandler('innerText', text);
     }
 
