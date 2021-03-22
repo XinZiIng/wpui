@@ -1,0 +1,17 @@
+input-component
+    display: inline-flex
+    border: var(--border-1px-width) solid var(--border-color)
+    width: var(--input-select-width)
+    transition: .3s border-color
+    &.focus
+        border-color: var(--color-theme)
+
+    input
+        width: 100%
+        border: none
+        padding: 0 var(--margin-padding-md)
+
+    [slot=prefix], [slot=suffix]
+        display: flex
+        align-items: center
+        justify-content: center
