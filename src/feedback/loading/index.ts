@@ -1,5 +1,4 @@
 import {$, pxToVw, createCustomElement, CreateHTMLElement} from "../../utils"
-
 /**
  * 加载中
  * @docs    请查阅README.md文档
@@ -19,7 +18,7 @@ class LoadingComponent extends CreateHTMLElement {
      * @returns {string[]}      需要被监听的属性名
      */
     static get observedAttributes() {
-        return ['loading'];
+        return ["visible"];
     }
 
     /**
@@ -48,6 +47,8 @@ class LoadingComponent extends CreateHTMLElement {
     connectedCallback() {
         this.isConnect = true;
 
+        $(this).attr("visible") === "true" ? this.show() : this.hide();
+
         this.dispatch('connect');
 
         // "mask"插槽元素存在时，删除默认元素
@@ -68,7 +69,7 @@ class LoadingComponent extends CreateHTMLElement {
     dispatch(type) {
         this.dispatchEvent(new CustomEvent(type, {
             detail: {
-                loading: $(this).attr("loading") === "true",
+                visible: $(this).attr("visible") === "true",
             }
         }))
     }

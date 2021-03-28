@@ -19,7 +19,7 @@
 </div>
 
 <!--
-    [loading="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
+    [visible="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
     [type="mask"]                   定义该组件加载显示类型，可选值有：`more`(适用于滚动加载下一页)、`mask`；默认`mask`
     [mask-icon-top="0"]             当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好
     [mask-bg="var(--mask-white)"]   定义该组件遮罩层背景样式；默认`var(--mask-white)`
@@ -28,7 +28,7 @@
     [color="var(--color)"]          定义该组件默认字体图标颜色；默认`var(--color)`
 -->
 <loading-component
-    loading="true"
+    visible="true"
     type="mask"
     mask-icon-top=""
     mask-bg="var(--mask-white)"
@@ -111,7 +111,7 @@
 </div>
 
 <!--
-    [loading="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
+    [visible="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
     [type="mask"]                   定义该组件加载显示类型，可选值有：`more`(适用于滚动加载下一页)、`mask`；默认`mask`
     [mask-icon-top="0"]             当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好
     [mask-bg="var(--mask-white)"]   定义该组件遮罩层背景样式；默认`var(--mask-white)`
@@ -120,7 +120,7 @@
     [color="var(--color)"]          定义该组件默认字体图标颜色；默认`var(--color)`
 -->
 <loading-component
-    loading="true"
+    visible="true"
     type="mask"
     mask-icon-top="100"
     mask-bg="var(--mask-white)"
@@ -238,7 +238,7 @@
 </div>
 
 <!--
-    [loading="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
+    [visible="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
     [type="mask"]                   定义该组件加载显示类型，可选值有：`more`(适用于滚动加载下一页)、`mask`；默认`mask`
     [mask-icon-top="0"]             当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好
     [mask-bg="var(--mask-white)"]   定义该组件遮罩层背景样式；默认`var(--mask-white)`
@@ -247,7 +247,7 @@
     [color="var(--color)"]          定义该组件默认字体图标颜色；默认`var(--color)`
 -->
 <loading-component
-    loading="true"
+    visible="true"
     type="more"
     mask-icon-top=""
     mask-bg="var(--mask-white)"
@@ -305,7 +305,7 @@
 </div>
 
 <!--
-    [loading="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
+    [visible="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
     [type="mask"]                   定义该组件加载显示类型，可选值有：`more`(适用于滚动加载下一页)、`mask`；默认`mask`
     [mask-icon-top="0"]             当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好
     [mask-bg="var(--mask-white)"]   定义该组件遮罩层背景样式；默认`var(--mask-white)`
@@ -314,7 +314,7 @@
     [color="var(--color)"]          定义该组件默认字体图标颜色；默认`var(--color)`
 -->
 <loading-component
-    loading="true"
+    visible="true"
     type="mask"
     mask-icon-top=""
     mask-bg="var(--mask-white)"
@@ -375,7 +375,7 @@
 </div>
 
 <!--
-    [loading="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
+    [visible="false"]               定义该组件是否为加载状态且显示相关元素；可选值有：`true`、`false`；默认隐藏；当该值改变时可触发`changed`事件
     [type="mask"]                   定义该组件加载显示类型，可选值有：`more`(适用于滚动加载下一页)、`mask`；默认`mask`
     [mask-icon-top="0"]             当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好
     [mask-bg="var(--mask-white)"]   定义该组件遮罩层背景样式；默认`var(--mask-white)`
@@ -384,7 +384,7 @@
     [color="var(--color)"]          定义该组件默认字体图标颜色；默认`var(--color)`
 -->
 <loading-component
-    loading="true"
+    visible="true"
     type="more"
     mask-icon-top=""
     mask-bg="var(--mask-white)"
@@ -433,7 +433,7 @@
 
 属性名 | 描述 | 默认值 | 属性监听回调
 --- | --- | --- | ---
-`loading` | 定义该组件是否为加载状态且显示相关元素，接收`true`或`false` | `false` | `true`
+`visible` | 定义该组件是否为加载状态且显示相关元素，接收`true`或`false` | `false` | `true`
 `type` | 定义该组件加载显示类型，可选值有：`more`(适用于滚动加载下一页)、`mask` | `mask` | -
 `mask-icon-top` | 当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好 | - | -
 `mask-bg` | 定义该组件遮罩层背景样式 | `var(--mask-white)` | -
