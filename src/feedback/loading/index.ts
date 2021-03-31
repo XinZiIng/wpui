@@ -83,11 +83,13 @@ class LoadingComponent extends CreateHTMLElement {
                 .find(`.loading-${type}-wrapper`)
                 .addClass("visible");
 
-        setTimeout(() => $(el).addClass("show"), 50)
+        setTimeout(() => {
+            $(el).addClass("show");
 
-        $(this.shadowRoot)
-            .find(`.loading-${type === "more" ? "mask" : "more"}-wrapper`)
-            .removeClass("visible", "show", "hide");
+            $(this.shadowRoot)
+                .find(`.loading-${type === "more" ? "mask" : "more"}-wrapper`)
+                .removeClass("visible", "show", "hide");
+        }, 50)
     }
 
     /**
@@ -150,19 +152,19 @@ class LoadingComponent extends CreateHTMLElement {
                         : ``
                 }
                 
-                .loading-more-wrapper.visible, .loading-mask-wrapper.visible {
+                :host([visible]) .loading-more-wrapper.visible, :host([visible]) .loading-mask-wrapper.visible {
                     display: flex;
                 }
                 
-                .loading-more-wrapper.show, .loading-mask-wrapper.show {
+                :host([visible=true]) .loading-more-wrapper.show, :host([visible=true]) .loading-mask-wrapper.show {
                     opacity: 1;
                 }
                 
-                .loading-more-wrapper.hide, .loading-mask-wrapper.hide {
+                :host([visible=false]) .loading-more-wrapper.hide, :host([visible=false]) .loading-mask-wrapper.hide {
                     opacity: 0;
                 }
                 
-                .loading-mask-wrapper.visible ::slotted([slot="icon"]) {
+                :host([visible=true]) .loading-mask-wrapper.visible ::slotted([slot="icon"]) {
                     display: block !important;
                 }
                 
@@ -180,7 +182,7 @@ class LoadingComponent extends CreateHTMLElement {
                     min-height: var(--height-md);
                 }
                 
-                .loading-more-wrapper.visible {
+                :host([visible=true]) .loading-more-wrapper.visible {
                     height: 100%;
                 }
                 
