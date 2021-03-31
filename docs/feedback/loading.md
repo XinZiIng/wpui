@@ -88,7 +88,7 @@
 
 <script>
     document.querySelector(".switch-component-1").addEventListener("change", function (ev) {
-        ev.currentTarget.parentNode.nextElementSibling.setAttribute("loading", ev.detail.checked)
+        ev.currentTarget.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
     })
 </script>
 ```
