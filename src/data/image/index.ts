@@ -20,7 +20,7 @@ class ImageComponent extends CreateHTMLElement {
      * @returns {string[]}      需要被监听的属性名
      */
     static get observedAttributes() {
-        return ["src"];
+        return ["src", "lazy"];
     }
 
     /**
@@ -30,14 +30,33 @@ class ImageComponent extends CreateHTMLElement {
      * @param newValue      新的属性值
      */
     attributeChangedCallback(name, oldValue, newValue) {
-        if (this.isConnect && oldValue != newValue) {
+        if (!this.isConnect) return;
+
+        if (name == "src" && oldValue != newValue) {
+            $(this).attr("status", "loading");
+
             $(this.shadowRoot)
-                .find(".image-wrapper")
-                .removeClass("error", "success", "hide");
+                .find("img")
+                .attr("src", newValue);
+
+            $(this.shadowRoot)
+                .find(".handler-wrapper")
+                .removeClass("hide");
 
             setTimeout(() => this.load(), 100);
 
             this.dispatch('change');
+        }
+
+        // 懒加载
+        if (name == "lazy" && oldValue != newValue && oldValue == "true") {
+            $(this).attr("lazy", "false");
+
+            $(this.shadowRoot)
+                .find("img")
+                .attr("src", $(this).attr("src"));
+
+            this.load();
         }
     }
 
@@ -47,47 +66,43 @@ class ImageComponent extends CreateHTMLElement {
     connectedCallback() {
         this.isConnect = true;
 
-        this.load();
+        $(this).attr("status", "loading");
 
-        if ($(this).find(`[slot=error]`).length) {
-            $(this.shadowRoot).find(`.error-icon`).remove()
+        // 有错误占位操作元素则删除默认的
+        if ($(this).find('[slot=error]').length) {
+            $(this.shadowRoot).find('.error-box > svg').remove();
         }
+
+        this.load();
     }
 
     /**
      * 图片加载处理
      */
     load() {
+        if ($(this).attr("lazy") == "true") return;
+
         clearTimeout(this.timer);
 
-        let img,
-            src = $(this).attr("src"),
-            imageWrapper = $(this.shadowRoot).find(".image-wrapper"),
+        let img = $(this.shadowRoot).find("img").get(0),
+            imageWrapper = $(this.shadowRoot).find(".handler-wrapper"),
 
             loadSuccess = () => {
-                $(imageWrapper).addClass("success");
+                $(this).attr("status", "success");
 
-                this.timer = setTimeout(
-                    () => $(imageWrapper).addClass("hide"),
-                    300
-                )
+                this.timer = setTimeout(() => {
+                    $(imageWrapper).addClass("hide");
+                },300)
             },
 
             loadError = () => {
                 clearTimeout(this.timer);
-                $(imageWrapper).addClass("error");
+                $(this).attr("status", "error");
             };
 
-        $(this).find("img").each(item => {
-            if (item.src === src) {
-                img = item;
-                return false;
-            }
-        })
+        if (!$(this).attr("src")) return loadError()
 
-        if (!img || !src) return loadError()
-
-        if (img?.complete && src) return loadSuccess();
+        if (img?.complete) return loadSuccess();
 
         $(img)
             .on("load", loadSuccess)
@@ -102,16 +117,15 @@ class ImageComponent extends CreateHTMLElement {
         let errorSizeIcon = $(this).attr("error-icon-size");
         errorSizeIcon < 0 ? errorSizeIcon = "" : "";
 
-        let borderRadius = $(this).attr("border-radius");
-        borderRadius < 0 ? borderRadius = "" : "";
-
         return `
             <style>
-                :host {
-                    border-radius: ${pxToVw(borderRadius || 0)};
+                img {
+                    display: block;
+                    max-width: 100%;
+                    object-fit: ${$(this).attr("object-fit") || "initial"}
                 }
                
-                .image-wrapper {
+                .handler-wrapper {
                     position: absolute;
                     top: 0;
                     right: 0;
@@ -119,58 +133,61 @@ class ImageComponent extends CreateHTMLElement {
                     left: 0;
                 }
                 
-                .image-wrapper.success .loading-box {
-                    opacity: 0;
-                }
-                
-                .image-wrapper.success.hide, .image-wrapper.error .loading-box {
-                    display: none !important;
-                }
-                
-                .image-wrapper.error .error-box {
-                    display: flex;
-                }
-                
-                .loading-box, .error-box {
+                .handler-wrapper .loading-box, .handler-wrapper .error-box {
                     justify-content: center;
                     align-items: center;
                     width: 100%;
                     height: 100%;
                 }
                 
-                .loading-box {
+                .handler-wrapper .loading-box {
                     opacity: 1;
                     transition: .3s;
                     display: flex !important;
                     background: var(--image-loading-bg)
                 }
                 
-                .error-box {       
+                :host([status=success]) .handler-wrapper .loading-box {
+                    opacity: 0;
+                }
+                
+                .handler-wrapper .error-box {       
                     display: none;
                     background: var(--image-error-bg);
                     color: var(--color-gray-light);
                 }
                 
-                .error-box .error-icon {
-                    fill: ${$(this).attr("error-icon-color") || `var(--color-gray-light)`};
-                    width: ${pxToVw(errorSizeIcon || 50)}; 
-                    height: ${pxToVw(errorSizeIcon || 50)}
+                .handler-wrapper .error-box > svg {
+                    fill: var(--color-gray-light);
+                    width: ${errorSizeIcon ? pxToVw(errorSizeIcon) : "35%"}; 
+                }
+                
+                :host([status=error]) .handler-wrapper .error-box {
+                    display: flex !important;
+                }
+                
+                .hide, :host([status=error]) .handler-wrapper .loading-box {
+                    display: none !important;
+                }
+                
+                :host ::slotted([slot=loading]), :host ::slotted([slot=error]) {
+                    display: flex !important;
                 }
             </style>  
                 
-            <slot></slot>
-
-            <div class="image-wrapper">
+            <img src="${$(this).attr("lazy") == "true" ? "" : $(this).attr("src")}"/>
+                
+            <div class="handler-wrapper">
                 <div class="loading-box">
                     <slot name="loading"></slot>
                 </div>
                 
                 <div class="error-box">
-                    <svg class="error-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                    <slot name="error"></slot>
+                    
+                    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                         <path d="M842.688 128 181.312 128C116.64 128 64 180.64 64 245.312l0 533.376C64 843.36 116.64 896 181.312 896l661.376 0C907.36 896 960 843.36 960 778.688L960 245.312C960 180.64 907.36 128 842.688 128zM288 288c35.36 0 64 28.64 64 64s-28.64 64-64 64c-35.328 0-64-28.64-64-64S252.672 288 288 288zM832 736c0 17.696-14.304 31.488-32 31.488L225.92 768c-0.128 0-0.224 0-0.352 0-10.08 0-19.616-4.288-25.664-12.384-6.112-8.192-7.936-18.56-4.896-28.352 2.304-7.488 58.272-183.552 180.064-183.552 38.08 0.896 67.424 9.824 95.776 18.336 35.712 10.72 70.528 19.936 109.664 13.76 20.448-3.296 28.896-23.808 43.328-69.952 19.04-60.8 47.808-152.736 174.656-152.736 17.536 0 31.776 14.08 32 31.616L832 511.616 832 736z"></path>
                     </svg>
-                    
-                    <slot name="error"></slot>
                 </div>
             </div>
         `
