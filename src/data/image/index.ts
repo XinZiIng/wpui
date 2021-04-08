@@ -85,6 +85,7 @@ class ImageComponent extends CreateHTMLElement {
         clearTimeout(this.timer);
 
         let img = $(this.shadowRoot).find("img").get(0),
+            src = $(this).attr("src"),
             imageWrapper = $(this.shadowRoot).find(".handler-wrapper"),
 
             loadSuccess = () => {
@@ -100,7 +101,11 @@ class ImageComponent extends CreateHTMLElement {
                 $(this).attr("status", "error");
             };
 
-        if (!$(this).attr("src")) return loadError()
+        $(this).attr("lazy") != "true" && $(img).attr("src") != src
+            ? $(img).attr("src", src)
+            : "";
+
+        if (!src) return loadError()
 
         if (img?.complete) return loadSuccess();
 
@@ -175,7 +180,7 @@ class ImageComponent extends CreateHTMLElement {
                 }
             </style>  
                 
-            <img src="${$(this).attr("lazy") == "true" ? "" : $(this).attr("src")}"/>
+            <img src=""/>
                 
             <div class="handler-wrapper">
                 <div class="loading-box">
