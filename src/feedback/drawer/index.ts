@@ -78,7 +78,7 @@ class DrawerComponent extends CreateHTMLElement {
         setTimeout(() => {
             $(el).removeClass("hide", "visible");
             $(this).attr("visible", "false");
-
+            console.log(this);
             cb?.();
         }, 300)
     }

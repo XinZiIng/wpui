@@ -4,7 +4,7 @@
 ## 示例
 ### 遮罩层
 设置该组件的`[type]`属性值为`mask`时，显示遮罩层加载样式；默认`[type=mask]`
-```
+```html
 <div class="align-items-center justify-content-flex-end">
     <span>隐藏</span>
     <switch-component
@@ -88,15 +88,15 @@
 
 <script>
     document.querySelector(".switch-component-1").addEventListener("change", function (ev) {
-        ev.currentTarget.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
+        this.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
     })
 </script>
 ```
 
 ### 遮罩层加载图标位置设置
 当组件加载类型是`mask`时，可修改加载图标距离顶部距离；默认该图标水平/垂直居中，但内容高度过高时，会在首屏看不到加载图标等情况，这样会导致用户体验不好，因此可以设置`[mask-icon-top="100"]`
-```
 
+```html
 <div class="align-items-center justify-content-flex-end">
     <span>隐藏</span>
     <switch-component
@@ -216,14 +216,15 @@
 
 <script>
     document.querySelector(".switch-component-2").addEventListener("change", function (ev) {
-        ev.currentTarget.parentNode.nextElementSibling.setAttribute("loading", ev.detail.checked)
+        this.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
     })
 </script>
 ```
 
 ### 加载更多
 设置该组件的属性`[type="more"]`时，显示加载更多样式
-```
+
+```html
 <div class="align-items-center justify-content-flex-end">
     <span>隐藏</span>
     <switch-component
@@ -283,14 +284,15 @@
 
 <script>
     document.querySelector(".switch-component-3").addEventListener("change", function (ev) {
-        ev.currentTarget.parentNode.nextElementSibling.setAttribute("loading", ev.detail.checked)
+        this.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
     })
 </script>
 ```
 
 ### 遮罩层加载图标自定义
 通过定义`[slot="mask"]`属性的插槽元素
-```
+
+```html
 <div class="align-items-center justify-content-flex-end">
     <span>隐藏</span>
     <switch-component
@@ -353,14 +355,15 @@
 
 <script>
     document.querySelector(".switch-component-4").addEventListener("change", function (ev) {
-        ev.currentTarget.parentNode.nextElementSibling.setAttribute("loading", ev.detail.checked)
+        this.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
     })
 </script>
 ```
 
 ### 加载更多加载图标自定义
 通过定义`[slot="mask"]`属性的插槽元素
-```
+
+```html
 <div class="align-items-center justify-content-flex-end">
     <span>隐藏</span>
     <switch-component
@@ -423,7 +426,7 @@
 
 <script>
     document.querySelector(".switch-component-5").addEventListener("change", function (ev) {
-        ev.currentTarget.parentNode.nextElementSibling.setAttribute("loading", ev.detail.checked)
+        this.parentNode.nextElementSibling.setAttribute("visible", ev.detail.checked)
     })
 </script>
 ```
@@ -440,3 +443,9 @@
 `mask-blur` | 定义该组件遮罩层模糊样式 | `6` | -
 `font-size` | 定义该组件默认字体图标字体大小 | `48` | -
 `color` | 定义该组件默认字体图标颜色 | `var(--color-theme)` | -
+
+## Slot
+插槽名 | 描述
+--- | --- 
+`mask` |  自定义遮罩层加载图标插槽元素
+`more` |  自定义加载更多插槽元素

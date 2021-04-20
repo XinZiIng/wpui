@@ -3,7 +3,7 @@
 
 ## 示例
 ### Height
-```
+```html
  <p class="height-lg border margin-bottom-md justify-content-center align-items-center">.height-lg 元素大尺寸高度</p>
 
 <p class="height-md border margin-bottom-md justify-content-center align-items-center">.height-md 元素大尺寸高度</p>

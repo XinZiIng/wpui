@@ -3,7 +3,7 @@
 
 ## 示例
 ### 顶部、主体、底部
-```
+```html
 <section>
     <header class="height-lg">
         <div class="height-lg align-items-center justify-content-center" style="background: #7dbcea; color: white;">Header</div>
@@ -20,7 +20,7 @@
 ```
 
 ### 顶部固定、主体滚动、底部固定
-```
+```html
 <section class="flex-direction-column" style="height: 250px;">
     <header class="height-lg">
         <div class="height-lg align-items-center justify-content-center" style="background: #7dbcea; color: white;">Header</div>
@@ -48,7 +48,7 @@
 ```
 
 ### 头部、主体（侧边栏+内容）、底部
-```
+```html
 <section class="flex-direction-column">
     <header class="height-lg">
         <div class="height-lg align-items-center justify-content-center" style="background: #7dbcea; color: white;">Header</div>
@@ -75,7 +75,7 @@
 ```
 
 ### 头部（侧边栏+内容区）、主体（侧边栏+内容区）
-```
+```html
 <section class="flex-direction-column">
     <header class="row">
         <aside class="col-2 height-lg">
@@ -108,7 +108,7 @@
 ```
 
 ### 头部固定、主体（侧边栏滚动+内容区滚动）
-```
+```html
 <section class="flex-direction-column" style="height: 250px;">
     <header class="height-lg">
         <div class="height-lg align-items-center justify-content-center" style="background: #7dbcea; color: white;">Header</div>
@@ -149,7 +149,7 @@
 ```
 
 ### 头部固定（侧边栏+内容区）、主体（侧边栏滚动+内容区滚动）
-```
+```html
 <section class="flex-direction-column" style="height: 250px;">
     <header class="row">
         <aside class="col-2 height-lg">
@@ -197,7 +197,7 @@
 
 ### 响应式布局
 使用[Grid](/docs/grid)提供的样式类：`.col-*-show`/`.col-*-show-flex`、`.col-hide`
-```
+```html
 <section>
     <header class="height-lg">
         <!-- PC Header -->

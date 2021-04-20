@@ -20,7 +20,7 @@ class ImageComponent extends CreateHTMLElement {
      * @returns {string[]}      需要被监听的属性名
      */
     static get observedAttributes() {
-        return ["src", "lazy"];
+        return ["src", "lazy", "object-fit"];
     }
 
     /**
@@ -57,6 +57,11 @@ class ImageComponent extends CreateHTMLElement {
                 .attr("src", $(this).attr("src"));
 
             this.load();
+        }
+
+        // 懒加载
+        if (name == "object-fit" && oldValue != newValue) {
+            $(this.shadowRoot).find("img").css(name, newValue);
         }
     }
 
@@ -126,7 +131,8 @@ class ImageComponent extends CreateHTMLElement {
             <style>
                 img {
                     display: block;
-                    max-width: 100%;
+                    width: 100%;
+                    max-height: 100%;
                     object-fit: ${$(this).attr("object-fit") || "initial"}
                 }
                
@@ -181,6 +187,8 @@ class ImageComponent extends CreateHTMLElement {
             </style>  
                 
             <img src=""/>
+            
+            <slot></slot>
                 
             <div class="handler-wrapper">
                 <div class="loading-box">

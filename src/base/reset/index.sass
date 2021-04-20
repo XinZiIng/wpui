@@ -109,7 +109,7 @@ textarea
 
 // 表格
 table
-    +create-border
+    +create-border("", var(--border-color))
     width: 100%
     border-collapse: collapse
     border-spacing: 0
@@ -127,12 +127,12 @@ table
                 border: none
 
     tfoot
-        +create-border(top)
+        +create-border(top, var(--border-color))
 
     tr
-        +create-border(bottom)
+        +create-border(bottom, var(--border-color))
         th, td
-            +create-border(left)
+            +create-border(left, var(--border-color))
             padding: var(--margin-padding-md)
             vertical-align: middle
             &:first-of-type
@@ -147,7 +147,6 @@ table
 modal-component,
 drawer-component,
 dialog-component,
-half-screen-dialog-component,
 loading-component [slot="icon"],
 badge-dot,
 badge-content

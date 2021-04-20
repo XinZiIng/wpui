@@ -33,6 +33,29 @@ class DialogComponent extends CreateHTMLElement {
                 .attr("visible", newValue);
         }
     }
+
+    /**
+     * 当自定义元素第一次被连接到文档DOM时被调用
+     */
+    connectedCallback() {
+        this.isConnect = true;
+
+        this.dispatch('connect');
+
+        this.onChange();
+    }
+
+    /**
+     * 当监听属性改变时
+     */
+    onChange() {
+        $(this.shadowRoot)
+            .find("drawer-component")
+            .on("change", (ev) => {
+                $(this).attr("visible", ev.detail.visible)
+            })
+    }
+
     /**
      * 派发事件
      * @param type      事件类型

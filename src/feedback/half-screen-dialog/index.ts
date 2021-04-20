@@ -9,7 +9,7 @@ class HalfScreenDialogComponent extends CreateHTMLElement {
     constructor() {
         super();
 
-        this.shadow.appendChild(this.render());
+        this.shadow.innerHTML = this.render();
     }
 
     /**
@@ -33,6 +33,16 @@ class HalfScreenDialogComponent extends CreateHTMLElement {
                 .attr("visible", newValue);
         }
     }
+    /**
+     * 当自定义元素第一次被连接到文档DOM时被调用
+     */
+    connectedCallback() {
+        this.isConnect = true;
+
+        this.dispatch('connect');
+
+        this.bind();
+    }
 
     /**
      * 派发事件
@@ -47,27 +57,17 @@ class HalfScreenDialogComponent extends CreateHTMLElement {
     }
 
     /**
-     *
-     * @param drawerComponent
+     * 事件绑定
      */
-    bind(drawerComponent) {
-        // 抽屉组件绑定事件
-        $(drawerComponent)
+    bind() {
+        $(this.shadowRoot)
+            .find("drawer-component")
             .on("change", ev => {
                 $(this).attr("visible", ev.detail.visible)
-                this.dispatch("changed")
             })
-
-        // 关闭
-        $(drawerComponent)
             .find(".half-screen-dialog-component")
             .on("click", ev => {
-                // 隐藏
-                if (
-                    $(ev.target).hasClass("half-screen-dialog-close-box")
-                    || $(ev.target.parentNode).hasClass("half-screen-dialog-close-box")
-                    || $(ev.target.parentNode.parentNode).hasClass("half-screen-dialog-close-box")
-                ) {
+                if ($(ev.target).parents(".half-screen-dialog-close-box").length) {
                     this.setAttribute("visible", "false")
                 }
             })
@@ -82,7 +82,7 @@ class HalfScreenDialogComponent extends CreateHTMLElement {
         let div = document.createElement("div"),
             drawerComponent;
 
-        div.innerHTML = `
+        return `
             <drawer-component 
                 visible="${$(this).attr("visible") || false}"
                 mask-bg="${$(this).attr("mask-bg") || 'var(--mask-black)'}"
@@ -91,10 +91,6 @@ class HalfScreenDialogComponent extends CreateHTMLElement {
                 align="bottom"
             >
                 <style>
-                    :host([visible]) {
-                        display: inline-block !important;
-                    }
-                    
                     .half-screen-dialog-component {
                         background: white;
                         border-radius: ${pxToVw(borderRadius, borderRadius, 0, 0)};
@@ -148,11 +144,6 @@ class HalfScreenDialogComponent extends CreateHTMLElement {
                 </div>
             </drawer-component>
         `
-
-        drawerComponent = div.children[0];
-
-        this.bind(drawerComponent);
-        return drawerComponent;
     }
 }
 

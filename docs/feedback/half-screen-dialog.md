@@ -1,11 +1,11 @@
 # HalfScreenDialog 半屏对话框
-基于[<drawer-component/>](http://biuui.com/docs/feedback/drawer) 组件封装
+基于[<drawer-component/>](/docs/feedback/drawer) 组件封装
 
 用于当前页面处理事务，防止跳转页面时打断当前工作流程
 
 ## 示例
-```
-<button onclick="halfScreenDialogVisible()" class="button-theme">点击显示半屏对话框</button>
+```html
+<button onclick="halfScreenDialogVisible(true)" class="button-theme">点击显示半屏对话框</button>
 
 <!--
     半屏对话框组件
@@ -31,13 +31,12 @@
     </div>
 
     <!--  底部插槽元素  -->
-    <button slot="footer" class="button-theme">确认</button>
+    <button slot="footer" class="button-theme button-xl" onclick="halfScreenDialogVisible(false)">确认</button>
 </half-screen-dialog-component>
 
-
 <script>
-    function halfScreenDialogVisible() {
-        document.querySelector("half-screen-dialog-component").setAttribute("visible", true)
+    function halfScreenDialogVisible(bool) {
+        document.querySelector("half-screen-dialog-component").setAttribute("visible", bool)
     }
 </script>
 ```
@@ -52,3 +51,10 @@
 `mask-bg` | 定义该组件遮罩层背景样式；默认`var(--mask-black)` | - | -
 `mask-blur` | 定义该组件遮罩层模糊样式 | `6` | -
 `border-radius` | 定义该组件圆角样式 | `24` | -
+
+## Slot
+插槽名 | 描述
+--- | --- 
+`header` |  自定义组件头部插槽元素
+`body` |  自定义组件内容插槽元素
+`footer` |  自定义组件尾部插槽元素

@@ -2,7 +2,7 @@
 
 ## 示例
 ### 基础使用
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"
@@ -19,7 +19,7 @@
 
 ### 默认显示
 通过设置组件的`[visible=xx]`属性值
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"
@@ -39,7 +39,7 @@
 三种触发方式：鼠标移入、聚集、点击
 
 通过设置组件的`[trigger=xx]`属性值
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"
@@ -83,7 +83,7 @@
 
 ### 位置
 设置组件的`[placement=xx]`属性值可修改弹窗位置
-```
+```html
 <style>
     button {
         width: 110px;
@@ -303,7 +303,7 @@
 
 ### 三角形图标
 通过设置组件的`[triangle=xx]`属性值可修改三角形图标是否显示
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"
@@ -333,7 +333,7 @@
 
 ### 圆角
 通过设置组件的`[border-radius=xx]`属性值可修改弹出窗圆角样式
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"
@@ -350,7 +350,7 @@
 
 ### 颜色
 设置组件的`[color=xx]`属性值可修改弹出窗背景色、三角形颜色样式
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"
@@ -367,7 +367,7 @@
 
 ### 禁用
 通过设置组件的`[disabled=xx]`属性值可设置弹出窗是否禁用状态
-```
+```html
 <popover-component
     placement="bottomLeft"
     trigger="click"

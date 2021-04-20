@@ -4,7 +4,7 @@
 该组件只提供了交互，具体显示内容可自行根据业务需求去扩展；例如基于该组件二次封装的组件：[ActionSheet](/docs/feedback/action-sheet) 、[Confirm](/docs/feedback/taost) 、 [HalfScreenDialog](/docs/feedback/half-screen-dialog) 、 [Modal](/docs/feedback/modal)  、 [Toast](/docs/feedback/toast) ...
 
 ## 示例
-```
+```html
 <!--
     [align="center"]                定义该组件内容对齐方式；可选值有：`top`、`right`、`bottom`、`left`、`center`；默认`center`
     [visible="false"]               定义该组件是否可见状态，接收`true`或`false`；默认`false`；当该值改变时可触发`changed`事件
@@ -15,6 +15,7 @@
 <drawer-component
     align="center"
     visible="false"
+    mask-closable="true"
 >
     <div style="background: white; min-height: 200px; min-width: 200px;">drawer content</div>
 </drawer-component>
@@ -26,11 +27,12 @@
 <button class="button-danger margin-left-md" onclick="drawerVisible('left')">left</button>
 
 <script>
-    var drawerComponent = document.querySelector("drawer-component");
-
     function drawerVisible(align) {
+        var drawerComponent = document.querySelector("drawer-component");
+
         drawerComponent.setAttribute("align", align)
-        drawerComponent.setAttribute("visible", true)
+        
+        drawerComponent.setAttribute("visible", "true")
     }
 </script>
 ```

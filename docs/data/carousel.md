@@ -4,7 +4,7 @@
 ## 示例
 ### 基础使用
 横向轮播，且不循环
-```
+```html
 <carousel-component
     loop="false"
     threshold="50"
@@ -32,7 +32,6 @@
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
-            <li class="carousel-dots-item"></li>
         </ul>
     </div>
 </carousel-component>
@@ -40,7 +39,7 @@
 
 ### 横向循环轮播
 设置`<carousel-component/>`元素的属性值`[loop=true]`
-```
+```html
 <carousel-component
     loop="true"
     threshold="50"
@@ -68,7 +67,6 @@
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
-            <li class="carousel-dots-item"></li>
         </ul>
     </div>
 </carousel-component>
@@ -79,7 +77,7 @@
 
 设置`<carousel-component/>`元素的属性值`[vertical=true]`为竖向轮播
 
-```
+```html
 <carousel-component
     loop="false"
     threshold="50"
@@ -105,7 +103,6 @@
         <!-- .default 默认样式（如需自定义样式时，请勿添加该样式类） -->
         <ul class="carousel-dots-box default">
             <!-- .active 激活 -->
-            <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
@@ -120,7 +117,8 @@
 设置`<carousel-component/>`元素的属性值`[vertical=true]`为竖向轮播
 
 设置`[loop="true"]`为循环轮播
-```
+
+```html
 <carousel-component
     loop="true"
     threshold="50"
@@ -149,7 +147,6 @@
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
-            <li class="carousel-dots-item"></li>
         </ul>
     </div>
 </carousel-component>
@@ -159,7 +156,8 @@
 修改`<carousel-component/>`元素的属性`[index]`属性值
 
 设置默认值与在使用中设置指定值都可
-```
+
+```html
 <carousel-component
     id="SetCarouselIndex"
     loop="true"
@@ -188,7 +186,6 @@
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
-            <li class="carousel-dots-item"></li>
         </ul>
     </div>
 </carousel-component>
@@ -198,8 +195,6 @@
 <button class="button-theme margin-sm" onclick="setCarouselToIndex(2)">滑动到第3张</button>
 
 <script>
-    let carouselComponent = document.querySelector("carousel-component")
-
     function setCarouselToIndex(i) {
         document.querySelector("#SetCarouselIndex").setAttribute("index", i);
     }
@@ -208,7 +203,8 @@
 
 ### 边距
 设置`<carousel-component/>`元素的属性`[margin="15"]`
-```
+
+```html
 <carousel-component
     loop="true"
     threshold="50"
@@ -235,7 +231,6 @@
             <!-- .active 激活 -->
             <li class="carousel-dots-item"></li>
             <li class="carousel-dots-item"></li>
-            <li class="carousel-dots-item"></li>
         </ul>
     </div>
 </carousel-component>
@@ -243,12 +238,13 @@
 
 ### 卡片横向不循环轮播
 设置`carousel-item`宽度
-```
-<style>
-    carousel-component[vertical="false"] carousel-item {
-        width: 80vw !important;
-    }
-</style>
+
+```html
+<!--<style>-->
+<!--    carousel-component[vertical="false"] carousel-item {-->
+<!--        width: 80vw !important;-->
+<!--    }-->
+<!--</style>-->
 
 <carousel-component
     loop="false"
@@ -284,11 +280,12 @@
 
 ### 卡片横向循环轮播
 设置`carousel-item`宽度
-```
+
+```html
 <style>
-    carousel-component[vertical="false"] carousel-item {
-        width: 80vw !important;
-    }
+    /*carousel-component[vertical="false"] carousel-item {*/
+    /*    width: 80vw !important;*/
+    /*}*/
 </style>
 
 <carousel-component
@@ -327,7 +324,8 @@
 当`<carousel-component/>`元素的属性`[loop="true"]`时，设置`[autoplay=true]`为自动轮播
 
 设置`[interval=5000]`可修改轮播间隔时间
-```
+
+```html
 <carousel-component
     loop="true"
     threshold="50"

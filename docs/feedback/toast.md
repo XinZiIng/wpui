@@ -1,12 +1,12 @@
 # Toast 弹出式提示
-基于[<drawer-component/>](http://biuui.com/docs/feedback/drawer) 组件封装
+基于[&lt;drawer-component/&gt;](/docs/feedback/drawer) 组件封装
 
 用于主动操作反馈提示，在提示后，将延时隐藏
 
 ## 示例
 ### 简阶版
 使用默认样式，无需配置，简单使用
-```
+```html
 <button class="button-theme" onclick="showBaseToast()">快来点击我吧～</button>
 <script>
     function showBaseToast() {
@@ -19,7 +19,7 @@
 
 ### 高阶版
 通过配置项自定义样式
-```
+```html
 <button class="button-theme" onclick="showConfigToast2()">快来点击我吧～</button>
 <script>
     function showConfigToast2() {

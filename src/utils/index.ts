@@ -135,6 +135,20 @@ class $$ {
     }
 
     /**
+     * 获取DOM子级
+     */
+    children() {
+        let result = [];
+        this.each((node: HTMLElement) => {
+            result = [...node.children]
+        });
+
+        this.selector = result;
+        this.length = result.length;
+        return this;
+    }
+
+    /**
      * 获取DOM数组
      * @param i             DOM数组指定下标
      * @returns {*[]|*}     返回DOM数组或单个DOM
@@ -260,6 +274,107 @@ class $$ {
 
         this.selector = result;
         this.length = result.length;
+        return this;
+    }
+
+    insertAdjacentElement(position, element) {
+        let newElement = element;
+
+        if (!element.nodeType && typeof element === "string") {
+            let node;
+            element = element.trim();
+            let isThead = element.startsWith("<thead"),
+                isTbody = element.startsWith("<tbody"),
+                isTr = element.startsWith("<tr"),
+                isTh = element.startsWith("<th"),
+                isTd = element.startsWith("<td");
+
+            if (isThead || isTbody) {
+                node = document.createElement(`table`);
+
+            } else if (isTr || isTh || isTd) {
+                node = document.createElement(`table`);
+                let theadOrTbody = document.createElement(`${element.includes("th") ? "thead" : "tbody"}`);
+
+                node = node.appendChild(theadOrTbody);
+                node.innerHTML = element;
+
+                if (!isTr && node.children[0].tagName === "TR") {
+                    node = node.children[0];
+                }
+            } else {
+                node = document.createElement(`div`);
+                node.innerHTML = element;
+            }
+
+            newElement = node.children;
+        }
+
+        if (newElement.nodeType || (newElement.length && newElement[0].nodeType)) {
+            this.selector = this.each(node => {
+                if (!node.nodeType) return false;
+
+                newElement = newElement.nodeType === 11 ? newElement.children : newElement;
+
+                let nodeList;
+
+                if (newElement.length) {
+                    nodeList = this.each(newElement, item => {
+                        if (item.nodeType) {
+                            let resultNode = node.insertAdjacentElement(position, item.cloneNode(true));
+
+                            if (position === "beforebegin" || position === "afterend") {
+                                node = resultNode
+                            }
+
+                            return resultNode;
+                        }
+                    });
+                } else {
+                    nodeList = node.insertAdjacentElement(position, newElement.cloneNode(true));
+                }
+
+                return nodeList.length > 1 ? nodeList[nodeList.length - 1] : nodeList;
+            }, true);
+
+            this.length = this.selector.length;
+
+        } else {
+            this.each(node => {
+                console.log(node);
+                node.insertAdjacentHTML(position, element)
+            });
+        }
+
+        return this;
+    }
+
+    insertAdjacentHTML(position, DOMString) {
+        this.each(node => node.insertAdjacentHTML(position, DOMString));
+        return this;
+    }
+
+    append(node) {
+        if (node) {
+            this.insertAdjacentElement('beforeend', node);
+        }
+
+        return this;
+    }
+
+    before(node) {
+        if (node) {
+            this.insertAdjacentElement('beforebegin', node);
+        }
+
+        return this;
+    }
+
+    after(node) {
+        if (node) {
+            this.insertAdjacentElement('afterend', node);
+        }
+
         return this;
     }
 
@@ -563,8 +678,10 @@ class $$ {
     each(data: any, callback?: Function | boolean, isReturnArray?: boolean) {
 
         if (typeof data === "function") {
+            typeof callback == "boolean" ? isReturnArray = callback : "";
+
             callback = data;
-            data = this.selector;
+            data = this.selector
         }
 
         if (!data || !callback) return this;

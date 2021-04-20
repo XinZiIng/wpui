@@ -2,7 +2,7 @@
 定义常用文本色样式类
 
 ## 示例
-```
+```html
 <p class="padding-md margin-bottom-md color-theme">.color-theme 主题色文本样式类</p>
 <p class="padding-md margin-bottom-md color-info">.color-info 信息状态文本色样式类</p>
 <p class="padding-md margin-bottom-md color-success">.color-success 信息状态文本色样式类</p>
@@ -33,8 +33,8 @@
 `.color-gray` | 灰色（辅助内容）文本色样式类
 `.color-gray-light` | 浅灰色（次要内容）文本色样式类
 
-## 重置样式
-可修改`:root`中的相关`CSS`变量
+## 重置样式变量
+可修改`:root`中的相关`CSS`变量，具体使用可查阅[CSS变量设置](/docs/base/variable)
 
 变量 | 描述
 --- | ---
@@ -48,21 +48,5 @@
 `--color-black` | 默认黑色文本色变量设置
 `--color-gray` | 灰色（辅助内容）文本色变量设置
 `--color-gray-light` | 浅灰色（次要内容）文本色变量设置
+
 **注意：上述变量修改将会影响到字体颜色相关、按钮相关等其他样式类**
-
-```
-:root {
-    --color-theme: #6dcfff;
-    --color-info: #46c2ff;
-    --color-success: #09BB07;
-    --color-warning: #f1c051;
-    --color-danger: #e64340;
-
-    --color-disabled: #ccc;
-    --color-link: #1890ff;
-    
-    --color-black: #333;
-    --color-gray: #666;
-    --color-gray-light: #999;
-}
-```

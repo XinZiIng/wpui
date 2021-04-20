@@ -2,7 +2,7 @@
 定义浮动样式类，例如：清除浮动、左浮动、右浮动
 
 ## 示例
-```
+```html
 <div class="clear-both">
     <button class="float-left">.float-left 左浮动</button>
     <button class="float-right">.float-right 右浮动</button>

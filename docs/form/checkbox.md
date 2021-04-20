@@ -3,7 +3,7 @@
 
 ## 示例
 ### 基础使用
-```
+```html
 <!--
     [name=xx]           定义该组件的名称；当选中状态改变时，会根据该属性值是否一致来判断是否全选
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -11,49 +11,36 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`;当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<ul>
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item-1"
-            value="xxx"
-            size="32"
-            checked="false"
-            disabled="false"
-        >复选框一</checkbox-component>
-    </li>
+<checkbox-component
+    class="margin-right-md"
+    name="checkbox-item-1"
+    value="xxx"
+    size="32"
+    checked="false"
+    disabled="false"
+>复选框一</checkbox-component>
 
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item-1"
-            value="xxx"
-            size="32"
-            checked="false"
-            disabled="false"
-        >复选框二</checkbox-component>
-    </li>
+<checkbox-component
+    class="margin-right-md"
+    name="checkbox-item-1"
+    value="xxx"
+    size="32"
+    checked="false"
+    disabled="false"
+>复选框二</checkbox-component>
 
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item-1"
-            value="xxx"
-            size="32"
-            checked="false"
-            disabled="false"
-        >复选框三</checkbox-component>
-    </li>
-</ul>
-<script>
-    document.querySelectorAll("checkbox-component[name=checkbox-item-1]").forEach(item => {
-        item.addEventListener("change", e => {
-            console.log("属性改变时回调：", e.detail);
-        })
-    });
-</script>
+<checkbox-component
+    name="checkbox-item-1"
+    value="xxx"
+    size="32"
+    checked="false"
+    disabled="false"
+>复选框三</checkbox-component>
 ```
 
 ### 默认激活
 设置`<checkbox-component/>`元素的`[checked]`属性值为`true`
-```
+```html
 <!--
     [name=xx]           定义该组件的名称；当选中状态改变时，会根据该属性值是否一致来判断是否全选
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -61,49 +48,36 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`；当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<ul>
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item-2"
-            value="xxx"
-            size="32"
-            checked="true"
-            disabled="false"
-        >复选框一</checkbox-component>
-    </li>
+<checkbox-component
+    class="margin-right-md"
+    name="checkbox-item-2"
+    value="xxx"
+    size="32"
+    checked="true"
+    disabled="false"
+>复选框一</checkbox-component>
 
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item-2"
-            value="xxx"
-            size="32"
-            checked="true"
-            disabled="false"
-        >复选框二</checkbox-component>
-    </li>
+<checkbox-component
+    class="margin-right-md"
+    name="checkbox-item-2"
+    value="xxx"
+    size="32"
+    checked="true"
+    disabled="false"
+>复选框二</checkbox-component>
 
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item-2"
-            value="xxx"
-            size="32"
-            checked="true"
-            disabled="false"
-        >复选框三</checkbox-component>
-    </li>
-</ul>
-<script>
-    document.querySelectorAll("checkbox-component[name=checkbox-item-2]").forEach(item => {
-        item.addEventListener("change", e => {
-            console.log("属性改变时回调：", e.detail);
-        })
-    });
-</script>
+<checkbox-component
+    name="checkbox-item-2"
+    value="xxx"
+    size="32"
+    checked="true"
+    disabled="false"
+>复选框三</checkbox-component>
 ```
 
 ### 禁用状态
 设置`<checkbox-component/>`元素的`[disabled]`属性值为`true`
-```
+```html
 <!--
     [name=xx]           定义该组件的名称；当选中状态改变时，会根据该属性值是否一致来判断是否全选
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -111,32 +85,27 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`；当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<ul>
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item"
-            value="xxx"
-            size="32"
-            checked=""
-            disabled="true"
-        >禁用状态</checkbox-component>
-    </li>
-
-    <li class="margin-right-md float-left">
-        <checkbox-component
-            name="checkbox-item"
-            value="xxx"
-            size="32"
-            checked="true"
-            disabled="true"
-        >选中且禁用</checkbox-component>
-    </li>
-</ul>
+<checkbox-component
+    class="margin-right-md"
+    name="checkbox-item"
+    value="xxx"
+    size="32"
+    checked=""
+    disabled="true"
+>禁用状态</checkbox-component>
+<checkbox-component
+    name="checkbox-item"
+    value="xxx"
+    size="32"
+    checked="true"
+    disabled="true"
+>选中且禁用</checkbox-component>
 ```
 
 ### 全选
 通过给`<checkbox-component/>`元素绑定`change`事件，并可其回调内可通过`arguments[0].detail.isCheckedAll`属性值判断是否全选，通过`arguments[0].detail.isTriggerEvent`属性值判断是否通过事件触发（用户点击行为，而非手动修改属性值引起）
-```
+
+```html
 <!--
     [name=xx]           定义该组件的名称；当选中状态改变时，会根据该属性值是否一致来判断是否全选
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -144,7 +113,7 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`；当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<dl>
+<dl class="clear-both">
     <dt>
         <checkbox-component
             name="check-all"
@@ -233,12 +202,15 @@
 `checked` | 定义该组件是否选中状态；可接收`true`、`false` | `false` | `true`
 `disabled` | 定义该组件是否禁用状态；可接收`true`、`false` | `false` | `true`
 
-
 ## 事件
 在`change`事件回调内，将额外返回两个属性值：
-- `isCheckedAll`：同当前组件`[name]`属性的所有组件是否全选状态（除禁用状态），返回`true`或`false`
-- `isTriggerEvent`：当前组件的`[checked]`、`[disabled]`属性改变是否通过用户触发行为，还是修改对应属性值，返回`true`或`false`
-```
+
+属性名 | 描述
+--- | --- 
+`isCheckedAll` | 同当前组件`[name]`属性的所有组件是否全选状态（除禁用状态），返回`true`或`false`
+`isTriggerEvent` | 当前组件的`[checked]`、`[disabled]`属性改变是否通过用户触发行为，还是修改对应属性值，返回`true`或`false`
+
+```javascript
 document.querySelector("checkbox-component").addEventListener("change", e => {
     let detail = e.detail;
     console.log("属性改变时回调：", detail);

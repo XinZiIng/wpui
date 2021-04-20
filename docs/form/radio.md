@@ -3,7 +3,7 @@
 
 ## 示例
 ### 基础使用
-```
+```html
 <!--
     [name=xx]           定义该组件的名称；同属性值的所有组件中切换选中状态，且只选中当前
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -11,7 +11,7 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`;当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<ul>
+<ul class="clear-both">
     <li class="margin-right-md float-left">
         <radio-component
             name="radio-item-1"
@@ -53,7 +53,7 @@
 
 ### 默认激活
 设置`<radio-component/>`元素的`[checked]`属性值为`true`
-```
+```html
 <!--
     [name=xx]           定义该组件的名称；同属性值的所有组件中切换选中状态，且只选中当前
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -61,7 +61,7 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`；当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<ul>
+<ul class="clear-both">
     <li class="margin-right-md float-left">
         <radio-component
             name="radio-item-2"
@@ -103,7 +103,7 @@
 
 ### 禁用状态
 设置`<radio-component/>`元素的`[disabled]`属性值为`true`
-```
+```html
 <!--
     [name=xx]           定义该组件的名称；同属性值的所有组件中切换选中状态，且只选中当前
     [size=32]           定义该组件的尺寸，该值为数字类型；默认`32`
@@ -111,7 +111,7 @@
     [checked=false]     定义该组件是否选中状态；可接收`true`、`false`；当该值改变时可触发`change`事件
     [disabled=false]    定义该组件是否禁用状态；可接收`true`、`false`；当该值改变时可触发`change`事件
 -->
-<ul>
+<ul class="clear-both">
     <li class="margin-right-md float-left">
         <radio-component
             name="radio-item"

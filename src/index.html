@@ -6,6 +6,93 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
+<style>
+    form {
+        width: 330px;
+    }
+    input-component {
+        width: 100% !important;
+    }
+</style>
+<body style="padding: 200px">
+
+<!--
+    [src]           定义该组件图片路径
+-->
+<form-component action="" label-width="150">
+    <form action="">
+        <form-item label="name">
+            <input-component>
+                <input type="text">
+            </input-component>
+        </form-item>
+
+    <form-item label="审批人" required="true" label-position="top">
+        <input-component>
+            <input type="text">
+        </input-component>
+    </form-item>
+    <form-item label="审批人" required="true" label-position="left">
+        <input-component>
+            <input type="text">
+        </input-component>
+    </form-item>
+
+    <form-item label-width="50">
+        <button>2123</button>
+    </form-item>
+    </form>
+</form-component>
+
+<select-component
+    placement="bottomLeft"
+    trigger="click"
+    border-radius="0"
+    color="white"
+    disabled="false"
+    triangle="true"
+    mode="multiple"
+    placeholder="请选择"
+>
+    <select-group title="1111">
+        <select-option value="111" disabled="true">111</select-option>
+        <select-option value="222" selected="true">222</select-option>
+        <select-option value="333" selected="true">333</select-option>
+        <select-option value="444" selected="true">444</select-option>
+        <select-option value="555" selected="true">555</select-option>
+    </select-group>
+
+    <select-group title="222">
+        <select-option value="aaa" disabled="true">aaa</select-option>
+        <select-option value="bbb">bbb</select-option>
+        <select-option value="ccc">ccc</select-option>
+        <select-option value="ddd">ddd</select-option>
+        <select-option value="eee">eee</select-option>
+    </select-group>
+
+    <div slot="reference">
+        <input class="select-input" autocomplete="off" type="search"/>
+    </div>
+</select-component>
+
+<script>
+    document.querySelector("select-component").addEventListener("change", function (ev) {
+        console.log(ev.detail);
+    })
+    // var timer = 0;
+    // document.querySelector("input").addEventListener("input", function () {
+    //     clearTimeout(timer)
+    //     timer = setTimeout(() => {
+    //         let v = this.value
+    //        this.parentNode.querySelectorAll(`[slot="content"] li`).forEach(function (item) {
+    //             let t = item.innerText;
+    //
+    //            item.style.display = v == "" || t.includes(v) ? "block" : "none";
+    //         })
+    //
+    //         clearTimeout(timer)
+    //     }, 100)
+    // })
+</script>
 </body>
 </html>

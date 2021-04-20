@@ -29,3 +29,6 @@ dist
 *.njsproj
 *.sln
 *.sw?
+
+# Filter document html file
+docs/*/*.html

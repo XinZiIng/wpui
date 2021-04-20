@@ -1,10 +1,10 @@
 # Dialog 对话框
-基于[<drawer-component/>](http://biuui.com/docs/feedback/drawer) 组件封装
+基于[&lt;drawer-component/&gt;](/docs/feedback/drawer) 组件封装
 
 用于当前页面处理事务，防止跳转页面时打断当前工作流程
 
 ## 示例
-```
+```html
 <button onclick="dialogVisible(true)" class="button-theme">点击显示对话框</button>
 
 <!--
@@ -30,26 +30,15 @@
 
     <!--  底部插槽元素  -->
     <div slot="footer" class="row">
-        <button class="button-theme-gray button-lg">辅助操作</button>
-        <button class="button-theme button-lg">主操作</button>
+        <button class="button-theme-gray button-lg" onclick="dialogVisible(false)">辅助操作</button>
+        <button class="button-theme button-lg" onclick="dialogVisible(false)">主操作</button>
     </div>
 </dialog-component>
 
-
 <script>
-    let dialogComponent = document.querySelector('dialog-component');
-
     function dialogVisible(visible) {
-        dialogComponent.setAttribute("visible", visible)
+        document.querySelector('dialog-component').setAttribute("visible", visible)
     }
-
-    document
-        .querySelectorAll('dialog-component [slot="footer"] button')
-        .forEach(item => {
-            item.addEventListener("click", function () {
-                dialogVisible(false)
-            })
-        })
 </script>
 ```
 
@@ -63,3 +52,10 @@
 `mask-bg` | 定义该组件遮罩层背景样式；默认`var(--mask-black)` | - | -
 `mask-blur` | 定义该组件遮罩层模糊样式 | `6` | -
 `border-radius` | 定义该组件圆角样式 | `24` | -
+
+## Slot
+插槽名 | 描述
+--- | --- 
+`header` |  自定义组件头部插槽元素
+`body` |  自定义组件内容插槽元素
+`footer` |  自定义组件尾部插槽元素

@@ -59,7 +59,7 @@ export default class ActionSheet {
                 id="ActionSheet-${this.ID}"
                 visible="${visible || false}"
                 mask-blur="${maskBlur || 6}"
-                mask-mlosable="${maskClosable || true}"
+                mask-closable="${maskClosable || true}"
             >
                 <style>
                     .action-sheet-component {
@@ -99,7 +99,7 @@ export default class ActionSheet {
                                 data.map((item, i) => {
                                     return `
                                         <li 
-                                            class="justify-content-center align-items-center cursor-pointer border-top ${item.isActive ? 'color-theme' : ''} ${item.isDisabled ? 'color-disabled cursor-not-allowed' : ''}" 
+                                            class="justify-content-center align-items-center cursor-pointer border-top-light ${item.isActive ? 'color-theme' : ''} ${item.isDisabled ? 'color-disabled cursor-not-allowed' : ''}" 
                                             data-index="${i}"
                                         >
                                             <div class="line-clamp-2 padding-right-md padding-left-md">${item.text}</div>

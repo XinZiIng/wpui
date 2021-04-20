@@ -2,7 +2,7 @@
 基于[<drawer-component/>](docs/feedback/drawer) 组件封装
 
 ## 示例
-```
+```html
 <button class="button-theme" onclick="showActionSheet()">点击弹出菜单</button>
 
 <script>
@@ -53,6 +53,7 @@
             alert(`激活索引：${activeIndex}；当前数据项：${JSON.stringify(item)}`);
         },
     })
+    console.log(as);
 
     function showActionSheet () {
         as.setVisible(true)

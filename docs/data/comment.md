@@ -2,16 +2,14 @@
 对内容的反馈、评价和讨论
 
 ## 示例
-```
+```html
 <ul class="padding-left-md">
     <li class="row padding-top-lg border-bottom-light">
         <image-component
-            class="avatar"
-            border-radius="100"
+            class="avatar border-round"
             object-fit="cover"
             src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1721218c-a306-4357-a79e-a507a7527c01/air-vapormax-2020-fk-%E5%A5%B3%E5%AD%90%E8%BF%90%E5%8A%A8%E9%9E%8B-8z75Fq.jpg"
         >
-            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1721218c-a306-4357-a79e-a507a7527c01/air-vapormax-2020-fk-%E5%A5%B3%E5%AD%90%E8%BF%90%E5%8A%A8%E9%9E%8B-8z75Fq.jpg" alt="">
         </image-component>
 
         <div class="flex margin-left-md">
@@ -37,12 +35,10 @@
             <ul class="">
                 <li class="row padding-top-lg">
                     <image-component
-                        class="avatar"
-                        border-radius="100"
+                        class="avatar border-round"
                         object-fit="cover"
                         src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1721218c-a306-4357-a79e-a507a7527c01/air-vapormax-2020-fk-%E5%A5%B3%E5%AD%90%E8%BF%90%E5%8A%A8%E9%9E%8B-8z75Fq.jpg"
                     >
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/1721218c-a306-4357-a79e-a507a7527c01/air-vapormax-2020-fk-%E5%A5%B3%E5%AD%90%E8%BF%90%E5%8A%A8%E9%9E%8B-8z75Fq.jpg" alt="">
                     </image-component>
 
                     <div class="flex margin-left-md">

@@ -3,7 +3,7 @@
 
 ## 示例
 ### 默认样式
-```
+```html
 <table>
     <caption>学生登记</caption>
     <thead>

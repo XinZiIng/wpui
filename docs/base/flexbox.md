@@ -3,7 +3,7 @@
 
 ## 示例
 ### 横轴对齐（水平对齐）
-```
+```html
 <div class="border padding-md margin-bottom-md justify-content-flex-start">
     <div>.justify-content-flex-start 子项横轴起点对齐（水平左对齐）样式类</div>
 </div>
@@ -17,17 +17,19 @@
 </div>
 
 <div class="border padding-md margin-bottom-md justify-content-space-between">
-    <div>.justify-content-space-between 子项横轴两端对齐（水平两端对齐）样式类</div>
+    <div>.justify-content-space-between </div>
+    <div>子项横轴两端对齐（水平两端对齐）样式类</div>
 </div>
 
 <div class="border padding-md justify-content-space-around">
-    <div>.justify-content-space-around 子项横轴分散对齐（水平分散对齐）样式类</div>
+    <div>.justify-content-space-around </div>
+    <div>子项横轴分散对齐（水平分散对齐）样式类</div>
 </div>
 ```
 
 ### 多子项竖轴对齐（垂直对齐）
 子项默认宽度百分百，且自动换行
-```
+```html
 <div class="border padding-md margin-bottom-md align-content-flex-start" style="height: 100px;">
     <div>.align-content-flex-start</div>
     <div>多子项竖轴起点对齐（垂直顶部对齐）样式类</div>
@@ -55,7 +57,7 @@
 ```
 
 ### 单子项竖轴对齐（垂直对齐）
-```
+```html
 <div class="border padding-md margin-bottom-md align-items-flex-start" style="height: 100px;">
     <div>.align-items-flex-start 子项竖轴起点对齐（垂直顶部对齐）样式类</div>
 </div>

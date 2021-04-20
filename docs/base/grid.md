@@ -4,7 +4,7 @@
 ## 示例
 ### 普通网格
 使用`.col-*`网格列样式类布局
-```
+```html
 <div class="row">
     <div class="col-3">
         <div class="height-md color-white align-items-center justify-content-center" style="background: var(--color-info)">.col-3</div>
@@ -56,7 +56,7 @@
 
 ### 网格位移
 使用`.col-offset-*`网格位移列样式类做位移
-```
+```html
 <div class="row">
     <div class="col-3 col-offset-3">
         <div class="height-md color-white align-items-center justify-content-center" style="background: var(--color-info)">.col-3 .col-offset-3</div>
@@ -88,7 +88,7 @@
 
 ### 弹性布局
 使用`.col-*`网格列样式类布局
-```
+```html
 <div class="row">
     <div class="col-3">
         <div class="height-md color-white align-items-center justify-content-center" style="background: var(--color-info)">.col-3</div>
@@ -145,7 +145,7 @@
 
 假如只设置了`xl`，那在非`xl`下将隐藏，以此类推
 
-```
+```html
 <p class="color-gray-light">当屏幕分辨率>0px时一行一列；>768px时一行两列；>992px时一行三列；>1200px时一行四列；>1600px时一行六列</p>
 <div class="row">
     <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-2">
@@ -175,7 +175,7 @@
 `xl`优先级最高，`默认`最低
 
 假如只设置了`xl`，那在非`xl`下将隐藏，以此类推
-```
+```html
 <p class="color-gray-light">当屏幕分辨率>0px时位移2列；>768px时位移4列；>992px时位移6列；>1200px时位移8列；>1600px时位移10列</p>
 <div class="row">
     <div class="flex col-offset-2 col-offset-sm-4 col-offset-md-6 col-offset-lg-8 col-offset-xl-10">
