@@ -31,6 +31,10 @@ class InputComponent extends CreateHTMLElement {
 
         $(this)
             .find("input")
+            .on("input, change", (ev) => {
+                let clearIconBox = $(this.shadowRoot).find(".icon-box.clear");
+                ev.currentTarget.value == "" ? $(clearIconBox).removeClass("show") : $(clearIconBox).addClass("show");
+            })
             .on("focus", (ev) => {
                 $(this).addClass("focus")
             })
@@ -44,7 +48,8 @@ class InputComponent extends CreateHTMLElement {
      */
     clearValueEvent() {
         $(this.shadowRoot).find(".icon-box.clear").on("click", () => {
-            $(this).find("input").val("")
+            $(this).find("input").val("").focus();
+            $(this.shadowRoot).find(".icon-box.clear").removeClass("show")
         })
     }
 
@@ -60,7 +65,8 @@ class InputComponent extends CreateHTMLElement {
 
             $(this)
                 .find("input")
-                .attr("type", isChange ? "text" : "password");
+                .attr("type", isChange ? "text" : "password")
+                .focus();
         })
     }
 
@@ -71,6 +77,10 @@ class InputComponent extends CreateHTMLElement {
     render() {
         return `
             <style>
+                :host([size=lg]) ::slotted([slot=prefix]) {
+                    font-size: var(--font-size-sm);
+                }
+                
                 ::slotted([slot=prefix]), ::slotted([slot=suffix]) {
                     padding: var(--margin-padding-md);
                 }
@@ -97,8 +107,13 @@ class InputComponent extends CreateHTMLElement {
                 }
                 
                 :host([clear=true]) .icon-box.clear {
+                    display: none;
+                }
+                
+                :host([clear=true]) .icon-box.clear.show {
                     display: flex;
                 }
+                
                 .icon-box.clear svg {
                     width: var(--font-size);
                     height: var(--font-size);
@@ -107,6 +122,7 @@ class InputComponent extends CreateHTMLElement {
                 :host([view=true]) .icon-box.view-password {
                     display: flex;
                 }
+                
                 .icon-box.view-password svg {
                     width: var(--font-size-sm);
                     height: var(--font-size-sm);

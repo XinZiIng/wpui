@@ -1,8 +1,21 @@
 input-component
-    display: inline-flex
+    display: inline-flex !important
     border: var(--border-1px-width) solid var(--border-color)
     width: var(--input-select-width)
     transition: .3s border-color
+    &[size=lg]
+        input
+            height: var(--height-lg)
+            font-size: var(--font-size-sm)
+
+    &[size=sm]
+        height: var(--height-sm)
+
+    &.border-bottom
+        border-top: none
+        border-right: none
+        border-left: none
+
     &.focus
         border-color: var(--color-theme)
 
@@ -15,3 +28,9 @@ input-component
         display: flex
         align-items: center
         justify-content: center
+
+    [slot=prefix]
+        padding-left: var(--margin-padding-md)
+
+    [slot=suffix]
+        padding-right: var(--margin-padding-md)
