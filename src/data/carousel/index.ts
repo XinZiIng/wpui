@@ -136,6 +136,8 @@ class CarouselComponent extends CreateHTMLElement {
         this.Touch = new Touch({
             el: this,
             onTouchStart(ev, data) {
+                this.isStopPropagation = false;
+
                 clearInterval(this.autoPlayTimer)
 
                 this.setLoop();
@@ -147,10 +149,16 @@ class CarouselComponent extends CreateHTMLElement {
                 this.loopTouchStart()
             },
             onTouchMove(ev, data) {
-                ev.preventDefault();
-                ev.stopPropagation();
-
                 let pageValue = data.touchmove[this.pageXOrY];
+
+                Math.abs(data.moveDistance[this.pageXOrY]) > 10 && !this.isStopPropagation
+                    ? this.isStopPropagation = true
+                    : "";
+
+                if (this.isStopPropagation) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+                }
 
                 $(this.carouselSliderElement).css(
                     "transform",
@@ -171,19 +179,19 @@ class CarouselComponent extends CreateHTMLElement {
                 if (Math.abs(moveDistance) > this.threshold) {
                     moveDistance < 0 ? newActiveIndex++ : newActiveIndex--;
                 }
-                
+
                 this.setActiveIndex(newActiveIndex);
             },
         })
 
         $(this)
             .on("click", ev => {
-                ev.preventDefault();
-                ev.stopPropagation();
-
                 let dotsItem = $(ev.target).parents(".carousel-dots-item");
 
                 if (dotsItem.length) {
+                    ev.preventDefault();
+                    ev.stopPropagation();
+
                     this.setActiveIndex($(dotsItem).index());
                 }
             })
@@ -378,7 +386,7 @@ class CarouselComponent extends CreateHTMLElement {
                     .css(this.leftOrTop, DOMHandler.position || "0")
             }
 
-        // 非循环轮播
+            // 非循环轮播
         } else {
             newActiveIndex < 0 ? newActiveIndex = 0 : "";
             newActiveIndex >= carouselItemsLength ? newActiveIndex = carouselItemsLength : "";
