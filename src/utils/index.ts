@@ -242,6 +242,8 @@ class $$ {
                 if (!node || node.nodeType === 9) return;
                 let isFind = false;
                 this.each(selector, item => {
+                    if (node.nodeType === 11) return;
+
                     let classAttr = node.getAttribute("class");
 
                     classAttr = item.includes(".") && classAttr
@@ -669,6 +671,26 @@ class $$ {
     }
 
     /**
+     * 获取焦点
+     */
+    focus(cb?: Function) {
+        this.selector[this.selector.length - 1].focus();
+
+        cb ? cb() : "";
+        return this;
+    }
+
+    /**
+     * 失去焦点
+     */
+    blur(cb?: Function) {
+        this.selector[this.selector.length - 1].blur();
+
+        cb ? cb() : "";
+        return this;
+    }
+
+    /**
      * 循环操作
      * @param data                  循环数据或回调
      * @param callback              循环后回调
@@ -755,6 +777,12 @@ export function pxToVw(...args:any) {
 
     for (let i = 0; i < arguments.length; i++) {
         let item = arguments[i];
+
+        // css 变量
+        if (typeof item == "string" && item.startsWith("var(") && item.endsWith(")")) {
+            return res += `${item} `;
+        }
+
         let newItem = parseFloat(item);
 
         if (isNaN(newItem)) {
