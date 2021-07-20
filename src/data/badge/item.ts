@@ -9,8 +9,17 @@ class BadgeItemComponent extends CreateHTMLElement {
      */
     constructor() {
         super();
+    }
 
+    /**
+     * 当自定义元素第一次被连接到文档DOM时被调用
+     */
+    connectedCallback() {
         this.shadow.innerHTML = this.render();
+
+        this.isConnect = true;
+
+        this.dispatch('connect');
     }
 
     /**
@@ -35,6 +44,10 @@ class BadgeItemComponent extends CreateHTMLElement {
             $(this).attr("count") === "dot" ? this.countChange(name, newValue) : "";
 
             this.dispatch('change');
+        }
+
+        if (this.isConnect && name == "type") {
+            this.shadow.innerHTML = this.render();
         }
     }
 
@@ -95,14 +108,15 @@ class BadgeItemComponent extends CreateHTMLElement {
     render() {
         let type = $(this).attr("type");
 
-        switch (type) {
-            case "dot":
-                return this.createDot();
-            case "count":
-                return this.createCount();
-            default:
-                return this.createOther()
+        if (type == "dot") {
+            return this.createDot();
         }
+
+        if (type == "count") {
+            return this.createCount();
+        }
+
+        return this.createOther();
     }
 
     /**
@@ -156,7 +170,7 @@ class BadgeItemComponent extends CreateHTMLElement {
                 }
             </style>  
             
-            <span class="badge-count ${count.length > 1 ? 'multi' : ''}">${count || 0}</span>
+            <span class="badge-count ${count > 1 ? 'multi' : ''}">${count || 0}</span>
         `
     }
 
